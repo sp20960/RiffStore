@@ -1,1 +1,20 @@
+@font-face {
+  font-family: LatoRegular;
+  src: url("/frontend/fonts/Lato-Regular.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: LatoRegular;
+  src: url("/frontend/fonts/Lato-Bold.ttf") format("ttf");
+}
+
 @import "tailwindcss";
+@theme {
+    --font-latoregular: LatoRegular, "sans-serif";
+    --font-latobold: LatoBold, "sans-serif";
+    --color-primary: #2b2b2b;
+    --color-secondary: #8b5e3c;
+    --color-text: #f0f0f0;
+    --color-accent: #c9a635;
+    --color-btn: #6a1e1e
+}

@@ -1,8 +1,9 @@
 
-        <footer class="w-screen flex justify-center bg-gray-600 ">
+        <footer class="flex justify-center bg-primary">
             <div>
                 <p class="text-white">Copyright 2025 RiffStore</p>
             </div>
         </footer>
+        <script src="/student023/shop/frontend/js/common.js"></script>
     </body>
 </html>
