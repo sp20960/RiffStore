@@ -9,14 +9,12 @@
     <link rel="stylesheet" href="/student023/shop/frontend/css/common.css">
 </head>
 <body>
-        <header class="flex flex-row items-center justify-between w-screen bg-gray-600">
+    <header class="flex flex-row items-center justify-between w-screen bg-gray-600 px-5 py-3">
         <div class="">
             <img src="/student023/shop/frontend/images/LogoClar.png" alt="" class="w-30">
         </div>
-        <div class="flex items-center">
-            <button class="border-black border-3 rounded-xl px-2 text-white" onclick="window.location.href='/student023/shop/backend/forms/form_product_insert.php'">Añadir producto</button>
-            <button class="border-black border-3 rounded-xl px-2 text-white">Añadir cliente</button>
-            <button class="border-black border-3 rounded-xl px-2 text-white">Añadir orden</button>
+        <div class="flex items-center gap-3">
+        
         </div>
    </header>
    
