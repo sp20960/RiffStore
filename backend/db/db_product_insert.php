@@ -26,5 +26,6 @@
         echo "ERROR";
     }
     
+    
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php')?>
