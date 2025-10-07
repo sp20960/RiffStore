@@ -23,7 +23,7 @@
     if (mysqli_query($connect,$sql)){
         echo "New record created successfully";
     } else{
-        echo"ERROR";
+        echo "ERROR";
     }
     
 ?>

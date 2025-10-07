@@ -8,6 +8,7 @@
     <link href="/student023/shop/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="/student023/shop/fontawesome/css/regular.css" rel="stylesheet">
     <link rel="stylesheet" href="/student023/shop/src/output.css">
+    <link rel="shortcut icon" href="/student023/shop/frontend/images/favicon.png" type="image/x-icon">
 </head>
 
 <body>
@@ -17,18 +18,18 @@
         </div>
         <div class="flex gap-10">
                 <div class="flex items-center cursor-pointer bg-secondary p-2 rounded-md gap-1 hover:opacity-50" id="add-product">
-                    <i class="fa-regular fa-file text-btn"></i>
+                    <i class="fa-regular fa-folder-open text-btn"></i>
                     <p class="text-text">Añadir producto</p>
                 </div>
             
                 <div class="flex items-center cursor-pointer bg-secondary p-2 rounded-md gap-1 hover:opacity-50">
-                    <i class="fa-regular fa-file text-btn"></i>
+                    <i class="fa-regular fa-clipboard text-btn"></i>
                     <p class="text-text">Añadir orden</p>
                 </div>
 
                 <div class="flex items-center cursor-pointer bg-secondary p-2 rounded-md gap-1 hover:opacity-50">
-                    <i class="fa-regular fa-file text-btn   "></i>
-                    <p class="text-text">Añadir Cliente</p>
+                    <i class="fa-regular fa-user text-btn   "></i>
+                    <p class="text-text">Añadir cliente</p>
                 </div>
             </div>
         </div>
