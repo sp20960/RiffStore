@@ -1,4 +1,6 @@
-<?php $productId = $_POST["productId"];?>
+<?php 
+    $productId = $_POST["productId"];
+?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php');?>
 <main>
     <div class="flex justify-center p-10 bg-secondary">
