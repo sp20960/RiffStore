@@ -1,7 +1,7 @@
-<?php include('../header.php')?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php');?>
 <main>
     <div class="flex justify-center p-10 bg-secondary">
-        <form action="/student023/shop/backend/db/db_product_insert.php" method="GET" class="flex flex-col gap-10 p-10 bg-primary w-300 rounded-xl">
+        <form action="/student023/shop/backend/db/db_product_insert.php" method="POST" class="flex flex-col gap-10 p-10 bg-primary w-300 rounded-xl">
             <input type="text" name="productName" id="" placeholder="Nombre" class="text-text">
             <input type="text" name= "description" id="" placeholder="Descripción" class="text-text">
             <input type="text" name= "brand" id="" placeholder="Marca" class="text-text">
@@ -23,4 +23,4 @@
     </div>
 
 </main>
-<?php include('../footer.php')?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php');?>

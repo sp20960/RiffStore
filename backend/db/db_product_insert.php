@@ -3,18 +3,20 @@
 <?php
     
     //GET DATA
-    print_r($_GET);
-    $productName = $_GET["productName"];
-    $description = $_GET["description"];
-    $brand = $_GET["brand"];
-    $cost = $_GET["cost"];
-    $pricePerUnit = $_GET["pricePerUnit"];
-    $frets = $_GET["frets"];
-    $color = $_GET["color"];
-    $bodyMaterial = $_GET["bodyMaterial"];
-    $tremolo = $_GET["tremolo"];
-    $categoryId = $_GET["categoryId"];
+    print_r($_POST);
+    $productName = $_POST["productName"];
+    $description = $_POST["description"];
+    $brand = $_POST["brand"];
+    $cost = $_POST["cost"];
+    $pricePerUnit = $_POST["pricePerUnit"];
+    $frets = $_POST["frets"];
+    $color = $_POST["color"];
+    $bodyMaterial = $_POST["bodyMaterial"];
+    $tremolo = $_POST["tremolo"];
+    $categoryId = $_POST["categoryId"];
 
+    //FIX UNSET
+    // unset($_POST);
     //INSERT DATA
     $sql = "INSERT INTO products (productName, `description`, cost, pricePerUnit, brand, frets, color, bodyMaterial, tremolo, categoryId)
             VALUES ('$productName', '$description', $cost, $pricePerUnit, '$brand', $frets, '$color', '$bodyMaterial', $tremolo, $categoryId )";
@@ -25,6 +27,8 @@
     } else{
         echo "ERROR";
     }
+    mysqli_close($connect);
+    //EMPTY POST
     
     
 ?>
