@@ -1,11 +1,13 @@
 <?php 
     include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php');
 
-    print_r($_POST);
+    //GET DATA
     $productId = $_POST["productId"];
 
+    //START DB CONNECTION
     include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
 
+    //DELETE QUERY
     $sql = "DELETE FROM products 
             WHERE productId = '$productId'";
 

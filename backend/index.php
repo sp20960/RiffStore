@@ -1,5 +1,13 @@
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/header.php'); ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/config/db_connect.php'); ?>
+    <?php 
+        include($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/config/db_connect.php'); 
+        
+        if (!$connect) {
+            echo "Eror" + mysqli_connect_error();
+        } else {
+            echo "It works!";
+        }
+    ?>
     <main class="pl-5">
         <h1 class="">¡Bienvenido al panel de administracion!</h1>
         <div class="flex flex-col gap-5 pb-5">
