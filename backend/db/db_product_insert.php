@@ -16,7 +16,7 @@
     //FIX UNSET
     // unset($_POST);
     //INSERT DATA
-    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connection.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
 
     $sql = "INSERT INTO products (productName, `description`, cost, pricePerUnit, brand, frets, color, bodyMaterial, tremolo, categoryId)
             VALUES ('$productName', '$description', $cost, $pricePerUnit, '$brand', $frets, '$color', '$bodyMaterial', $tremolo, $categoryId )";
@@ -28,6 +28,7 @@
         echo "ERROR";
     }
     //CLOSE DB CONEXION
-    mysqli_close($connect);    
+    mysqli_close($connect);   
+
+    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php')
 ?>
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php')?>

@@ -1,14 +1,13 @@
 <?php 
     include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php');
-    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connection.php');
 
     print_r($_POST);
-    $productName = $_POST["productId"];
+    $productId = $_POST["productId"];
 
-    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connection.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
 
     $sql = "DELETE FROM products 
-            WHERE productId = '$productName'";
+            WHERE productId = '$productId'";
 
      if (mysqli_query($connect,$sql)){
         echo "Record deleted successfully";

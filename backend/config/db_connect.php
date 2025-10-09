@@ -1,5 +1,4 @@
 <?php 
-
     $connect = mysqli_connect("localhost", "root", "", "online_shop");
 
     if (!$connect) {
@@ -7,5 +6,4 @@
     } else {
         echo "It works!";
     }
-
 ?>
