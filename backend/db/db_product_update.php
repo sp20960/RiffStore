@@ -18,7 +18,7 @@
     include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
 
     //DELETE QUERY
-    $sql = "UPDATE products 
+    $sql = "UPDATE 023_products 
             SET productName = '$productName',
                 `description` = '$description',
                 brand = '$brand',

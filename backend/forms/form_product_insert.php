@@ -42,7 +42,7 @@
                 </select>
             </div>
             <div class="flex flex-col gap-2">
-                <label for="categoryId" class="text-text">Tremolo</label>
+                <label for="categoryId" class="text-text">Categoria</label>
                 <select name="categoryId" id="tremolo" class="text-text border-1 p-2 rounded-md border-[#363636] bg-[#363636]">
                     <option value="1">Dreadnought</option>
                     <option value="2">Jumbo</option>

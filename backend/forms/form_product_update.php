@@ -8,7 +8,7 @@
     include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
 
     // COLLECT DATA
-    $sql = "SELECT * FROM products WHERE productId = $productId";
+    $sql = "SELECT * FROM 023_products WHERE productId = $productId";
     $result = mysqli_query($connect, $sql);
     $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
     
@@ -69,7 +69,7 @@
                 </select>
             </div>
             <div class="flex flex-col gap-2">
-                <label for="categoryId" class="text-text">Tremolo</label>
+                <label for="categoryId" class="text-text">Categoria</label>
                 <select name="categoryId" id="tremolo" class="text-text border-1 p-2 rounded-md border-[#363636] bg-[#363636]">
                     <option value="1" <?php echo ($categoryId == 1) ? "selected" : ""?>>Dreadnought</option>
                     <option value="2" <?php echo ($categoryId == 2) ? "selected" : ""?>>Jumbo</option>

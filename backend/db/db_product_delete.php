@@ -1,6 +1,5 @@
 <?php 
     include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php');
-
     //GET DATA
     $productId = $_POST["productId"];
 
@@ -8,7 +7,7 @@
     include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
 
     //DELETE QUERY
-    $sql = "DELETE FROM products 
+    $sql = "DELETE FROM 023_products 
             WHERE productId = '$productId'";
 
      if (mysqli_query($connect,$sql)){
