@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', ()=> {
+addEventListener('DOMContentLoaded', () => {
+    const logo = document.getElementById('logo');
     const products = document.getElementById('manage-products');
     const searchProduct = document.getElementById('search-product');
     const deleteProduct = document.getElementById('delete-product')
@@ -9,5 +10,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
         console.log("object");
     })
 
-  
+
+    logo.addEventListener('click', () => {
+        window.location.href = '/student023/shop/backend/index.php'
+    })
 })

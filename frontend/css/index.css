@@ -1,6 +1,79 @@
+:root {
+    --primary: #2b2b2b;
+    --secondary: #8b5e3c;
+    --text: #f0f0f0;
+    --accent: #c9a635;
+    --btn: #6a1e1e;
+}
+
+/* @font-face {
+  font-family: 'LatoRegular';
+  src: url("/frontend/fonts/Lato-Regular.ttf") format("ttf");
+} */
+
+@font-face {
+  font-family: 'LatoBold';
+  src: url("../fonts/Lato-Bold.ttf");
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     text-decoration: none;
 }
+
+h1{
+    font-family: LatoBold;
+    font-size: 1.8rem;
+}
+
+header {
+    padding: 10px 20px;
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+img[alt="logo"]{
+    width: 30px;
+}
+
+form {
+    position: relative;
+}
+
+.fa-search {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+}
+
+input[type="search"] {
+    border-radius: 5px;
+    height: 25px;
+    border: 0;
+    width: 180px;
+}
+
+.fa-circle-user {
+    color: var(--text);
+}
+
+.fa-cart-shopping {
+    color: var(--text);
+}
+
+.fa-bars {
+    color: var(--text);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+}
+
