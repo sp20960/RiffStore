@@ -1,7 +1,8 @@
 <?php include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php');?>
 <main>
     <div class="flex justify-center p-10 bg-secondary">
-        <form action="/student023/shop/backend/db/db_product_insert.php" method="POST" class="flex flex-col gap-10 p-10 bg-primary w-300 rounded-xl">
+        <form action="/student023/shop/backend/db/products/db_product_insert.php" method="POST" class="flex flex-col gap-10 p-10 bg-primary w-300 rounded-xl">
+            <label class="text-text text-center">AÑADIR UN PRODUCTO</label>
             <div class="flex flex-col gap-2">
                 <label for="productName" class="text-text">Nombre guitarra</label>
                 <input type="text" name="productName" id="" placeholder="Nombre" class="text-text border-1 p-2 rounded-md border-[#363636] bg-[#363636]"">
