@@ -1,7 +1,9 @@
 <?php
     include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php');
 
-    if (isset($_POST['productName'])) {
+    if ($_POST['productInsert'] == 'Send')  {
+
+        unset($_POST['productInsert']);
         //GET DATA
         $productName = $_POST["productName"];
         $description = $_POST["description"];

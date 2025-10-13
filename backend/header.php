@@ -13,8 +13,23 @@
 </head>
 
 <body>
-    <header class="flex flex-row items-center justify-center bg-primary px-5 py-3">
+    <header class="flex flex-row items-center justify-between bg-primary px-10 py-3">
         <div class="cursor-pointer" id="logo">
             <img src="/student023/shop/frontend/images/LogoClar.png" alt="" class="w-30">
         </div>
+        <div class="flex gap-5">
+            <div class="flex items-center justify-center cursor-pointer bg-secondary rounded-md gap-1 hover:opacity-50 w-45" id="manage-products">
+                <i class="fa-regular fa-folder-open text-accent"></i>
+                <p class="text-text">Gestionar productos</p>
+            </div>
+            <div class="flex items-center justify-center cursor-pointer bg-secondary p-2 rounded-md gap-1 hover:opacity-50 w-45" id="add-client">
+                <i class="fa-regular fa-user text-accent"></i>
+                <p class="text-text">Gestionar clientes</p>
+            </div>
+            <div class="flex items-center justify-center cursor-pointer bg-secondary p-2 rounded-md gap-1 hover:opacity-50 w-45" id="add-product">
+                <i class="fa-regular fa-clipboard text-accent"></i>
+                <p class="text-text">Gestionar ordenes</p>
+            </div>
+        </div>
+        
     </header>

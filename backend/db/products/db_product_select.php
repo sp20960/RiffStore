@@ -18,11 +18,11 @@
     $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     // SEND TO THE FROENTEND THE PRODUCTS
-    echo '<div class="flex flex-col gap-5 bg-secondary pl-2 pt-5" style="height: calc(100vh - 114px);">';;
+    echo '<div class="flex flex-col gap-5 bg-secondary pl-2 pt-5" >';
     foreach ($products as $product) {
         echo '<p class="text-text">'.$product['productId'].' | '.$product['productName'].' | '.$product['description'].' | '.$product['cost'].' | '.$product['pricePerUnit'].' | '.
                    $product['brand'].' | '.$product['frets'].' | '.$product['color'].' | '.$product['bodyMaterial'].' | '
-                   .$product['categoryName'].'</p>'.
+                   .$product['categoryName'].' | '.$product['insertedOn'].'</p>'.
                    '<hr>';
     };
     echo '</div>';

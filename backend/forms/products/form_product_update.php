@@ -85,7 +85,7 @@
                     <option value="12" <?php echo ($categoryId == 12) ? "selected" : ""?>>Semi-hollow</option>
                 </select>
             </div>
-            <input type="submit" value="Guardar" class="bg-btn text-text rounded-md">
+            <input type="submit" value="Actualizar" class="bg-btn text-text rounded-md cursor-pointer">
         </form>  
     </div>
 

@@ -59,7 +59,7 @@
                     <option value="12">Semi-hollow</option>
                 </select>
             </div>
-            <input type="submit" value="Send" class="bg-btn text-text rounded-md" >
+            <input type="submit" value="Send" name="productInsert" class="bg-btn text-text rounded-md" >
         </form>  
     </div>
 
