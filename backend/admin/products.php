@@ -3,6 +3,9 @@
     include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/db/products/db_select_products.php');
 ?>
 <main class="flex flex-col gap-5 bg-secondary p-10">
+    <div class="flex justify-end">
+        <button class="bg-btn text-text p-3 rounded-md cursor-pointer hover:opacity-90" id="add-product-btn">Add product</button>
+    </div>
     <?php 
         foreach ($products as $product){
             echo '<div class="flex border-2 justify-between items-center border-accent rounded-md bg-primary p-4">'.
@@ -14,19 +17,13 @@
                             '<p class="text-text">'.$product['pricePerUnit'].'€'.'</p>'.
                         '</div>'.
                     '</div>'.
-                    '<div class="flex gap-3">'.
-                        '<form action="/student023/shop/backend/forms/products/form_product_update.php" method="POST">'.
-                            '<input type="hidden" '.'name="productId" '.'value="'.$product['productId'].'">'.
-                            '<button type="submit"><i class="fa fa-edit text-text cursor-pointer"></i></button>'.
-                        '</form>'.
-                        '<form action="/student023/shop/backend/forms/products/form_product_delete.php" method="POST">'.
-                            '<input type="hidden" '.'name="productId" '.'value="'.$product['productId'].'">'.
-                            '<button type="submit"><i class="fa fa-trash text-text cursor-pointer"></i></button>'.
-                        '</form>'.
-                         
-                    '</div>'.
+                    '<div class="flex gap-3">';
+                        include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/forms/products/form_product_update_call.php');
+                        include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/forms/products/form_product_delete_call.php');
+            echo    '</div>'.
                  '</div>';
         }
     ?>
+    <script src="/student023/shop/frontend/js/backend_products.js"></script>
 </main>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php'); ?>

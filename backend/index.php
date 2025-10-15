@@ -11,5 +11,4 @@
     <main class="px-10 bg-secondary">
         <h1 class="text-text text-xl pt-5 pb-5">¡Bienvenido al panel de administracion!</h1>
     </main>
-    <script src="/student023/shop/frontend/js/backend_index.js"></script>
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/footer.php'); ?>
