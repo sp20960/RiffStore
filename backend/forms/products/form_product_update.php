@@ -1,11 +1,11 @@
 <?php 
-    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php');
 
     // GET DATA
     $productId = $_POST["productId"];
 
     // START DB CONNECTION
-    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
 
     // COLLECT DATA
     $sql = "SELECT * FROM 023_products WHERE productId = $productId";
@@ -88,6 +88,5 @@
             <input type="submit" value="Actualizar" class="bg-btn text-text rounded-md cursor-pointer">
         </form>  
     </div>
-
 </main>
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php');?>
+<?php require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php');?>

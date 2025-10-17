@@ -1,7 +1,7 @@
 <?php 
     $productId = $_POST["productId"];
 ?>
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php');?>
+<?php require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php');?>
 <main class=" bg-secondary" style="height: calc(100vh - 108px);">
     <div class="flex justify-center items-center h-[100%] p-10 bg-secondary">
         <div class="bg-primary w-100 flex flex-col gap-8 p-10 rounded-2xl">
@@ -15,6 +15,5 @@
             </div>
         </div>
     </div>
-
 </main>
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php');?>
+<?php require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php');?>
