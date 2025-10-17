@@ -139,14 +139,14 @@ footer {
 
 footer a {
     font-size: 1rem;
-    padding: 5px 0 5px 20px;
+    padding-left: 20px;
     font-family: 'LatoRegular';
 }
 
 footer h2 {
-    padding-left: 10px;
     color: var(--text);
-    padding: 10px 0 5px 15px;
+    padding: 5px 0 5px 10px;
+    
 }
 
 footer small {
@@ -160,8 +160,12 @@ footer small {
     color: var(--text);
 }
 
-.container-payment-methods {
-    padding: 10px 0 10px 15px;
+.container-payment-methods img:nth-child(2) {
+    padding-left: 20px;
+}
+
+.container-payment-methods img{
+    padding: 10px 0 10px;
 }
 
 .container-policies {
@@ -185,8 +189,6 @@ footer small {
         font-size: 1.5rem;
     }
 
-
-
     header {
         justify-content: space-evenly;
 
@@ -200,7 +202,6 @@ footer small {
     }
 
     input[type="search"] {
-
         width: 350px;
     }
 
@@ -213,6 +214,10 @@ footer small {
     nav a {
         font-size: 3rem;
         padding: 0 50px;
+    }
+
+    footer h2 {
+        font-size: 1.4rem;
     }
 
 }
