@@ -136,6 +136,7 @@ footer {
     display: flex;
     flex-direction: column;
 }
+
 footer a {
     font-size: 1rem;
     padding: 5px 0 5px 20px;
@@ -155,15 +156,63 @@ footer small {
 }
 
 .container-social-media {
-   padding: 15px 0 10px 20px;
-   color: var(--text); 
+    padding: 15px 0 10px 20px;
+    color: var(--text);
 }
 
 .container-payment-methods {
-    padding: 10px 0 10px 15px; 
+    padding: 10px 0 10px 15px;
 }
 
 .container-policies {
     display: flex;
     justify-content: center;
+}
+
+@media(min-width: 810px) and (max-width: 1090px) {
+
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-family: LatoRegular;
+        font-size: 1.5rem;
+    }
+
+
+
+    header {
+        justify-content: space-evenly;
+
+    }
+
+    .fa-search {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(-50%, -50%);
+    }
+
+    input[type="search"] {
+
+        width: 350px;
+    }
+
+    nav p {
+        font-size: 3rem;
+        cursor: pointer;
+        padding: 0 50px;
+    }
+
+    nav a {
+        font-size: 3rem;
+        padding: 0 50px;
+    }
+
 }
