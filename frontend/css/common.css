@@ -216,8 +216,67 @@ footer small {
         padding: 0 50px;
     }
 
+    footer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 20px 0;
+    }
+
+    footer hr {
+        display: none;
+    }
+
+    .footer-help{
+        grid-column: 1 /  2;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-left: 10px;    
+    }
+
+    .footer-business {
+        grid-column: 2 /  3;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .container-payment-methods{
+        grid-column: 3 / 4;
+    }
+
+    .container-payment-methods img:nth-child(2) {
+        padding-left: 0;
+    }
+
+    .container-social-media {
+        grid-row: 2 / 3;
+        padding: 10px 0 20px 10px;
+    }
+
+    .container-policies {
+        grid-row: 3 / 4;
+        grid-column: 1 / span 4;
+        padding: 20px 0;
+    }
+
+    .container-policies + hr {
+        grid-row: 3 / 4;
+        grid-column: 1 / span 4;
+    }
+
+    footer small {
+        grid-row: 4 / 5;
+        grid-column: 1 / span 4;
+    }
+
     footer h2 {
         font-size: 1.4rem;
+        padding: 0;
+    }
+
+    footer a {
+        padding-left: 0;
     }
 
 }
