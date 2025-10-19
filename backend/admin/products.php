@@ -1,6 +1,6 @@
 <?php 
-    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php'); 
-    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/db/products/db_select_products.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php'); 
+    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/db/products/db_select_products.php');
 ?>
 <main class="flex flex-col gap-5 bg-secondary p-10">
     <div class="flex justify-end">

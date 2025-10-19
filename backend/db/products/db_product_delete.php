@@ -1,5 +1,5 @@
 <?php 
-    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php');
     //GET DATA
     $productId = $_POST["productId"];
 
@@ -19,5 +19,5 @@
     //CLOSE DB CONEXION
     mysqli_close($connect);   
     
-    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php')
+    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php')
 ?>

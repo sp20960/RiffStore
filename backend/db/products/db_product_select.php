@@ -1,6 +1,6 @@
 <?php 
-    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php');
-    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
 
     // SAVE QUERY TO COLLECT PRODUCT DATA
     $sql = "SELECT *
@@ -27,5 +27,5 @@
     };
     echo '</div>';
 
-    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php')
+    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php')
 ?>

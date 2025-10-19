@@ -1,5 +1,5 @@
 <?php 
-    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
     
     // WRITE QUERY
     $sql = "SELECT * FROM 023_products;";
