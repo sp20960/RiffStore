@@ -12,24 +12,26 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body>
-    <header class="flex flex-row items-center justify-between bg-primary px-10 py-3">
+<body class="flex">
+    <header class="flex flex-col items-center  bg-primary px-10 py-10 h-[100vh]">
         <div class="cursor-pointer" id="logo">
             <img src="/student023/shop/frontend/images/brand/logo_claro.png" alt="" class="w-10">
         </div>
-        <div class="flex gap-5">
-            <div class="flex items-center justify-center cursor-pointer bg-secondary rounded-md gap-1 hover:opacity-50 w-45" id="manage-products">
+        <div class="flex flex-col gap-5 pt-10">
+            <div class="flex items-center justify-center cursor-pointer bg-secondary p-2 rounded-md gap-1 hover:opacity-50 w-50" id="manage-products">
                 <i class="fa-regular fa-folder-open text-btn"></i>
                 <p class="text-text">Gestionar productos</p>
             </div>
-            <div class="flex items-center justify-center cursor-pointer bg-secondary p-2 rounded-md gap-1 hover:opacity-50 w-45" id="add-client">
+            <div class="flex items-center justify-center cursor-pointer bg-secondary p-2 rounded-md gap-1 hover:opacity-50 w-50" id="add-client">
                 <i class="fa-regular fa-user text-btn"></i>
                 <p class="text-text">Gestionar clientes</p>
             </div>
-            <div class="flex items-center justify-center cursor-pointer bg-secondary p-2 rounded-md gap-1 hover:opacity-50 w-45" id="add-product">
+            <div class="flex items-center justify-center cursor-pointer bg-secondary p-2 rounded-md gap-1 hover:opacity-50 w-50" id="add-product">
                 <i class="fa-regular fa-clipboard text-btn"></i>
                 <p class="text-text">Gestionar ordenes</p>
             </div>
-        </div>
-        
+            <div>
+                <h1>Hola <?php session_start(); echo $_SESSION['test'];?></h1>
+            </div>
+        </div>  
     </header>

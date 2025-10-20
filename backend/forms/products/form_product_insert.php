@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php');?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/admin_header.php');?>
 <main>
     <div class="flex justify-center p-10 bg-secondary">
         <form action="/student023/shop/backend/db/products/db_product_insert.php" method="POST" class="flex flex-col gap-10 p-10 bg-primary w-300 rounded-xl">
