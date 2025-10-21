@@ -26,7 +26,7 @@
 
 ?>
 <main>
-    <div class="flex justify-center p-10 bg-secondary">
+    <div class="flex justify-center p-10 bg-secondary w-[calc(100vw_-_295px)]">
         <form action="/student023/shop/backend/db/products/db_product_update.php" method="POST" class="flex flex-col gap-10 p-10 bg-primary w-300 rounded-xl">
             <input type="text" name="productId" value="<?php echo $productId ?>" hidden>
             <div class="flex flex-col gap-2">
@@ -71,18 +71,21 @@
             <div class="flex flex-col gap-2">
                 <label for="categoryId" class="text-text">Categoria</label>
                 <select name="categoryId" id="tremolo" class="text-text border-1 p-2 rounded-md border-[#363636] bg-[#363636]">
-                    <option value="1" <?php echo ($categoryId == 1) ? "selected" : ""?>>Dreadnought</option>
-                    <option value="2" <?php echo ($categoryId == 2) ? "selected" : ""?>>Jumbo</option>
-                    <option value="3" <?php echo ($categoryId == 3) ? "selected" : ""?>>Parlor</option>
-                    <option value="4" <?php echo ($categoryId == 4) ? "selected" : ""?>>Auditorium</option>
-                    <option value="5" <?php echo ($categoryId == 5) ? "selected" : ""?>>Classical</option>
-                    <option value="6" <?php echo ($categoryId == 6) ? "selected" : ""?>>Les Paul</option>
-                    <option value="7" <?php echo ($categoryId == 7) ? "selected" : ""?>>Stratocaster</option>
-                    <option value="8" <?php echo ($categoryId == 8) ? "selected" : ""?>>Telecaster</option>
-                    <option value="9" <?php echo ($categoryId == 9) ? "selected" : ""?>>Single Cut</option>
-                    <option value="10" <?php echo ($categoryId == 10) ? "selected" : ""?>>Superstrat</option>
-                    <option value="11" <?php echo ($categoryId == 11) ? "selected" : ""?>>Flying V</option>
-                    <option value="12" <?php echo ($categoryId == 12) ? "selected" : ""?>>Semi-hollow</option>
+                    <?php 
+                        $sql = 'SELECT * FROM `023_categories`;';
+
+                        require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
+                        $result = mysqli_query($connect, $sql);
+                        $categories = mysqli_fetch_all($result,MYSQLI_ASSOC);
+                        
+                        foreach($categories as $category) {
+                            if ($category['categoryId'] != $categoryId) {
+                                echo '<option value="'.$category['categoryId'].'">'.$category['categoryName'].'</option>';
+                            } else {
+                                 echo '<option value="'.$category['categoryId'].'" selected>'.$category['categoryName'].'</option>';
+                            }
+                        }
+                    ?>
                 </select>
             </div>
             <input type="submit" value="Actualizar" class="bg-btn text-text rounded-md cursor-pointer">

@@ -2,8 +2,8 @@
     $productId = $_POST["productId"];
 ?>
 <?php require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/admin_header.php');?>
-<main class=" bg-secondary" style="height: calc(100vh - 108px);">
-    <div class="flex justify-center items-center h-[100%] p-10 bg-secondary">
+<main>
+    <div class="flex justify-center items-center h-[100%] p-10 bg-secondary w-[calc(100vw_-_280px)]">
         <div class="bg-primary w-100 flex flex-col gap-8 p-10 rounded-2xl">
             <h1 class="text-text text-center">Estas seguro que quieres eliminar este product_id <?php echo $productId?></h1>
             <div class="flex justify-center gap-40">

@@ -13,7 +13,7 @@
 </head>
 
 <body class="flex">
-    <header class="flex flex-col items-center  bg-primary px-10 py-10 h-[100vh]">
+    <header class="flex flex-col items-center  bg-primary px-10 py-10 min-h-[100vh]">
         <div class="cursor-pointer" id="logo">
             <img src="/student023/shop/frontend/images/brand/logo_claro.png" alt="" class="w-10">
         </div>
@@ -31,7 +31,7 @@
                 <p class="text-text">Gestionar ordenes</p>
             </div>
             <div>
-                <h1>Hola <?php session_start(); echo $_SESSION['test'];?></h1>
+                <h1>Hola <?php session_start(); echo $_SESSION["SSID"][0]["firstName"]; ?></h1>
             </div>
         </div>  
     </header>
