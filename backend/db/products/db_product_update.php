@@ -1,5 +1,5 @@
 <?php 
-    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/admin_header.php');
 
     //GET DATA
     $productId = $_POST["productId"];

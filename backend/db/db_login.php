@@ -13,12 +13,12 @@
         // EXECUTE QUERY AND SAVE RESULT
         $result = mysqli_query($connect, $sql);
 
-        $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $user = mysqli_fetch_assoc($result);
         // CHECK IF CUSTOMER EXISTS
         if ($user) {
             // INITIALIZE SESSION
             session_start();
-            $_SESSION['SSID'] = $user;
+            $_SESSION['user'] = $user;
             // REDIRECT USER TO THE ADMINISTRATOR PANEL
            header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/index.php') ;
         } else {

@@ -1,3 +1,5 @@
+<?php session_start();  ?>
+<?php $nickname = $_SESSION['user']['firstName'] ?? 'guest';  ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -31,7 +33,7 @@
                 <p class="text-text">Gestionar ordenes</p>
             </div>
             <div>
-                <h1>Hola <?php session_start(); echo $_SESSION["SSID"][0]["firstName"]; ?></h1>
+                <h1>Hola <?php echo $nickname; ?></h1>
             </div>
         </div>  
     </header>
