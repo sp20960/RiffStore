@@ -1,5 +1,8 @@
-<?php session_start();  ?>
-<?php $nickname = $_SESSION['user']['firstName'] ?? 'guest';  ?>
+<?php 
+require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/security/check_session.php');
+$nickname = $_SESSION['user']['firstName'] ?? 'guest';
+?>
+<?php   ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -15,7 +18,7 @@
 </head>
 
 <body class="flex">
-    <header class="flex flex-col items-center  bg-primary px-10 py-10 min-h-[100vh]">
+    <header class="flex flex-col items-center bg-primary px-10 py-10 min-h-[100vh]">
         <div class="cursor-pointer" id="logo">
             <img src="/student023/shop/frontend/images/brand/logo_claro.png" alt="" class="w-10">
         </div>
@@ -33,7 +36,7 @@
                 <p class="text-text">Gestionar ordenes</p>
             </div>
             <div>
-                <h1>Hola <?php echo $nickname; ?></h1>
+                <h1> <?php echo '<p class="text-text">'.'Hola '.$nickname.'</p>' ?></h1>
             </div>
         </div>  
     </header>

@@ -1,5 +1,5 @@
 <?php 
-    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/header.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/admin_header.php');
     //GET DATA
     $productId = $_POST["productId"];
 

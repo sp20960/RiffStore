@@ -1,5 +1,6 @@
 <?php 
     if(isset($_POST['submit'])){
+        session_start();
         // FETCH POST INFORMATION
         $email = $_POST['email'];
         $pwd = $_POST['pwd']; 
@@ -17,7 +18,6 @@
         // CHECK IF CUSTOMER EXISTS
         if ($user) {
             // INITIALIZE SESSION
-            session_start();
             $_SESSION['user'] = $user;
             // REDIRECT USER TO THE ADMINISTRATOR PANEL
            header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/index.php') ;
