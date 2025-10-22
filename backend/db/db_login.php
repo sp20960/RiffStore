@@ -1,6 +1,8 @@
 <?php 
     if(isset($_POST['submit'])){
+        // INITIALIZE SESSION
         session_start();
+        
         // FETCH POST INFORMATION
         $email = $_POST['email'];
         $pwd = $_POST['pwd']; 
@@ -17,7 +19,7 @@
         $user = mysqli_fetch_assoc($result);
         // CHECK IF CUSTOMER EXISTS
         if ($user) {
-            // INITIALIZE SESSION
+            
             $_SESSION['user'] = $user;
             // REDIRECT USER TO THE ADMINISTRATOR PANEL
            header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/index.php') ;
