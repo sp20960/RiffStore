@@ -4,7 +4,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/products/db_sel
 ?>
 
 
-<main class="flex flex-col gap-5 bg-secondary p-10 w-[100%]">
+<main class="flex flex-col gap-5 bg-secondary p-10 w-full">
     <div class="flex justify-end">
         <button class="bg-btn text-text p-3 rounded-md cursor-pointer hover:opacity-90" id="add-product-btn">Add product</button>
     </div>

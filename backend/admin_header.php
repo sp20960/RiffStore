@@ -18,7 +18,7 @@ $nickname = $_SESSION['user']['firstName'] ?? 'guest';
 </head>
 
 <body class="flex">
-    <header class="flex flex-col items-center bg-primary px-10 py-10 min-h-[100vh]">
+    <header class="flex flex-col items-center bg-primary px-10 py-10 min-h-screen">
         <div class="cursor-pointer" id="logo">
             <img src="/student023/shop/frontend/images/brand/logo_claro.png" alt="" class="w-10">
         </div>

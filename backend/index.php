@@ -2,7 +2,7 @@
         require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/admin_header.php');
         require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/config/db_connect.php');
     ?>
-    <main class="px-10 bg-secondary w-[100%]">
+    <main class="px-10 bg-secondary w-full">
         <h1 class="text-text text-xl pt-5 pb-5">¡Bienvenido al panel de administracion!</h1>
         <?php
             if (!$connect) {
