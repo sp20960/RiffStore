@@ -6,11 +6,13 @@ main {
 
 main h1 {
   margin-top: 85px;
+  font-size: 2rem;
 }
 
 main h2 {
   padding-top: 20px;
   text-align: start;
+  font-size: 1.5rem;
   grid-column: span 2;
 }
 
@@ -24,6 +26,7 @@ main h2 {
   display: none;
   object-fit: cover;
   width: 100vw;
+  height: 700px;
 }
 
 img.active {
@@ -65,7 +68,7 @@ img.active {
 }
 
 main section:nth-child(3) {
-  padding: 10px 10px;
+  padding: 10px 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: 40px;
@@ -84,6 +87,10 @@ main section:nth-child(3) {
   border-radius: 10px;
 }
 
+  .card p {
+    font-size: 1.4rem;
+  }
+
 .card img {
   width: 130px;
   object-fit: cover;
@@ -94,6 +101,10 @@ main section:nth-child(3) {
   align-items: center;
   justify-content: start;
   width: 100%;
+}
+
+.card-stars p {
+  font-size: 1rem;
 }
 
 .card-product-info {
@@ -140,10 +151,6 @@ main section:nth-child(3) {
     height: 320px;
   }
 
-  .card p {
-    font-size: 1.4rem;
-  }
-
   .container-more {
     grid-column: span 3;
   }
@@ -160,10 +167,7 @@ main section:nth-child(3) {
 
   .card {
     height: 320px;
-  }
-
-  .card p {
-    font-size: 1.4rem;
+    gap: 15px;
   }
 
   .container-more {
