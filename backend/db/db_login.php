@@ -2,7 +2,6 @@
     if(isset($_POST['submit'])){
         // INITIALIZE SESSION
         session_start();
-        
         // FETCH POST INFORMATION
         $email = $_POST['email'];
         $pwd = $_POST['pwd']; 
@@ -18,7 +17,7 @@
 
         $user = mysqli_fetch_assoc($result);
         // CHECK IF CUSTOMER EXISTS
-        if ($user) {
+        if ($user && $user['rol'] == "admin") {
             
             $_SESSION['user'] = $user;
             // REDIRECT USER TO THE ADMINISTRATOR PANEL

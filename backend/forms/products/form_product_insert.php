@@ -58,7 +58,14 @@
                     ?>
                 </select>
             </div>
-            <input type="submit" value="Send" name="productInsert" class="bg-btn text-text rounded-md" >
+            <div class="flex flex-col gap-2">
+                <label for="bodyMaterial" class="text-text">Imagenes</label>
+                <input type="file" name="productImage" class="text-text border p w-100 rounded-md border-[#363636] bg-[#363636]">
+            </div>
+            <div class="flex justify-center">
+                <input type="submit" value="Send" name="productInsert" class="bg-btn text-text rounded-md px-10 py-3 cursor-pointer" >
+            </div>
+            
         </form>  
     </div>
 

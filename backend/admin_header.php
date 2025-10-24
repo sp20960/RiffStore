@@ -1,8 +1,12 @@
-<?php 
+<?php
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/security/check_session.php');
 $nickname = $_SESSION['user']['firstName'] ?? 'guest';
+$nickname = strtoupper($nickname);
+if (isset($_POST['logout']) && isset($_SESSION['user'])) {
+    session_destroy();
+}
 ?>
-<?php   ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -18,25 +22,47 @@ $nickname = $_SESSION['user']['firstName'] ?? 'guest';
 </head>
 
 <body class="flex">
-    <header class="flex flex-col items-center bg-primary px-10 py-10 min-h-screen">
-        <div class="cursor-pointer" id="logo">
-            <img src="/student023/shop/frontend/images/brand/logo_claro.png" alt="" class="w-10">
+    <header class="flex flex-col bg-primary  min-h-screen">
+        <div class="py-9 flex items-center px-3">
+            <div class="py-7 px-2 flex justify-center border border-white w-15 rounded-md">
+                <i class="fa-regular fa-circle-user fa-2xl text-text cursor-pointer" id="profile"></i>
+                <div class="absolute bg-white w-30 h-20 translate-x-[50%] translate-y-[20%] transform hidden flex-col rounded-sm" id="profile-dropdown-content">
+                    <a href="" class="pl-2">Mi Cuenta</a>
+                    <hr>
+                    <form action="admin_header.php" method="POST" class="pl-2">
+                        <input type="submit" name="logout" value="Log Out" class="cursor-pointer">
+                    </form>
+                    <hr>
+                </div>
+            </div>
+            <div class="border h-[60px] w-full border-white rounded-md flex items-center px-5">
+                <p class="text-text">Bienvenido al panel, <?= $nickname?></p>
+            </div>
         </div>
-        <div class="flex flex-col gap-5 pt-10">
-            <div class="flex items-center justify-center cursor-pointer bg-secondary p-2 rounded-md gap-1 hover:opacity-50 w-50" id="manage-products">
-                <i class="fa-regular fa-folder-open text-btn"></i>
-                <p class="text-text">Gestionar productos</p>
+
+        <div class="flex flex-col px-15">
+            <div class="cursor-pointer flex justify-center" id="logo">
+                <img src="/student023/shop/frontend/images/brand/logo_claro.png" alt="" class="w-10">
             </div>
-            <div class="flex items-center justify-center cursor-pointer bg-secondary p-2 rounded-md gap-1 hover:opacity-50 w-50" id="add-client">
-                <i class="fa-regular fa-user text-btn"></i>
-                <p class="text-text">Gestionar clientes</p>
+
+            <div class="flex flex-col gap-5 pt-10">
+                <div class="flex items-center justify-center cursor-pointer bg-btn p-2 rounded-md gap-1 hover:opacity-50 w-50" id="manage-products">
+                    <i class="fa-regular fa-folder-open text-btn"></i>
+                    <p class="text-text">Gestionar productos</p>
+                </div>
+                <div class="flex items-center justify-center cursor-pointer bg-btn p-2 rounded-md gap-1 hover:opacity-50 w-50" id="add-client">
+                    <i class="fa-regular fa-user text-btn"></i>
+                    <p class="text-text">Gestionar clientes</p>
+                </div>
+                <div class="flex items-center justify-center cursor-pointer bg-btn p-2 rounded-md gap-1 hover:opacity-50 w-50" id="add-product">
+                    <i class="fa-regular fa-clipboard text-btn"></i>
+                    <p class="text-text">Gestionar ordenes</p>
+                </div>
+                <div class="flex items-center justify-center cursor-pointer bg-btn p-2 rounded-md gap-1 hover:opacity-50 w-50" id="shopping-cart">
+                    <i class="fa-regular fa-cart-shopping text-btn"></i>
+                    <p class="text-text">Carrito compra</p>
+                </div>
             </div>
-            <div class="flex items-center justify-center cursor-pointer bg-secondary p-2 rounded-md gap-1 hover:opacity-50 w-50" id="add-product">
-                <i class="fa-regular fa-clipboard text-btn"></i>
-                <p class="text-text">Gestionar ordenes</p>
-            </div>
-            <div>
-                <h1> <?php echo '<p class="text-text">'.'Hola '.$nickname.'</p>' ?></h1>
-            </div>
-        </div>  
+        </div>
+
     </header>

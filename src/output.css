@@ -28,10 +28,10 @@
     --default-mono-font-family: var(--font-mono);
     --font-latoregular: LatoRegular, "sans-serif";
     --color-primary: #2b2b2b;
-    --color-secondary: #8b5e3c;
+    --color-secondary: #f5f5dc;
     --color-text: #f0f0f0;
     --color-accent: #c9a635;
-    --color-btn: #6a1e1e;
+    --color-btn: #8b5e3c;
   }
 }
 @layer base {
