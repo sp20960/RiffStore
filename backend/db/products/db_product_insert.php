@@ -15,12 +15,13 @@
         $bodyMaterial = $_POST["bodyMaterial"];
         $tremolo = $_POST["tremolo"];
         $categoryId = $_POST["categoryId"];
+        $imagePath = "/student023/shop/frontend/images/products/ibanez_rg550/image.png";
 
         //INSERT DATA
         include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
 
-        $sql = "INSERT INTO 023_products (productName, `description`, cost, pricePerUnit, brand, frets, color, bodyMaterial, tremolo, categoryId)
-                VALUES ('$productName', '$description', $cost, $pricePerUnit, '$brand', $frets, '$color', '$bodyMaterial', $tremolo, $categoryId )";
+        $sql = "INSERT INTO 023_products (productName, `description`, cost, pricePerUnit, brand, frets, color, bodyMaterial, tremolo, categoryId, imagePath)
+                VALUES ('$productName', '$description', $cost, $pricePerUnit, '$brand', $frets, '$color', '$bodyMaterial', $tremolo, $categoryId, '$imagePath' )";
 
         // CONFIRMATION MESSAGE
         if (mysqli_query($connect,$sql)){

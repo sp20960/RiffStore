@@ -9,7 +9,6 @@
     <link href="/student023/shop/fontawesome/css/solid.css" rel="stylesheet">
     <link rel="stylesheet" href="/student023/shop/src/output.css">
     <link rel="shortcut icon" href="/student023/shop/frontend/images/brand/favicon.png" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
     <header class="flex items-center justify-center bg-primary px-10 py-5">

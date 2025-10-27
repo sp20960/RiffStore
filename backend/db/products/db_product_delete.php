@@ -7,8 +7,8 @@
     include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
 
     //DELETE QUERY
-    $sql = "DELETE FROM 023_products 
-            WHERE productId = '$productId'";
+    $sql = "DELETE FROM `023_products`
+            WHERE productId = $productId";
 
      if (mysqli_query($connect,$sql)){
         echo "Record deleted successfully";

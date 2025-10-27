@@ -4,6 +4,7 @@ $nickname = $_SESSION['user']['firstName'] ?? 'guest';
 $nickname = strtoupper($nickname);
 if (isset($_POST['logout']) && isset($_SESSION['user'])) {
     session_destroy();
+    header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/login.php') ;
 }
 ?>
 
@@ -18,7 +19,6 @@ if (isset($_POST['logout']) && isset($_SESSION['user'])) {
     <link href="/student023/shop/fontawesome/css/solid.css" rel="stylesheet">
     <link rel="stylesheet" href="/student023/shop/src/output.css">
     <link rel="shortcut icon" href="/student023/shop/frontend/images/brand/favicon.png" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body class="flex">
@@ -29,7 +29,7 @@ if (isset($_POST['logout']) && isset($_SESSION['user'])) {
                 <div class="absolute bg-white w-30 h-20 translate-x-[50%] translate-y-[20%] transform hidden flex-col rounded-sm" id="profile-dropdown-content">
                     <a href="" class="pl-2">Mi Cuenta</a>
                     <hr>
-                    <form action="admin_header.php" method="POST" class="pl-2">
+                    <form action="/student023/shop/backend/admin_header.php" method="POST" class="pl-2">
                         <input type="submit" name="logout" value="Log Out" class="cursor-pointer">
                     </form>
                     <hr>
@@ -47,19 +47,19 @@ if (isset($_POST['logout']) && isset($_SESSION['user'])) {
 
             <div class="flex flex-col gap-5 pt-10">
                 <div class="flex items-center justify-center cursor-pointer bg-btn p-2 rounded-md gap-1 hover:opacity-50 w-50" id="manage-products">
-                    <i class="fa-regular fa-folder-open text-btn"></i>
+                    <i class="fa-regular fa-folder-open text-primary"></i>
                     <p class="text-text">Gestionar productos</p>
                 </div>
                 <div class="flex items-center justify-center cursor-pointer bg-btn p-2 rounded-md gap-1 hover:opacity-50 w-50" id="add-client">
-                    <i class="fa-regular fa-user text-btn"></i>
+                    <i class="fa-regular fa-user text-primary"></i>
                     <p class="text-text">Gestionar clientes</p>
                 </div>
                 <div class="flex items-center justify-center cursor-pointer bg-btn p-2 rounded-md gap-1 hover:opacity-50 w-50" id="add-product">
-                    <i class="fa-regular fa-clipboard text-btn"></i>
+                    <i class="fa-regular fa-clipboard text-primary"></i>
                     <p class="text-text">Gestionar ordenes</p>
                 </div>
                 <div class="flex items-center justify-center cursor-pointer bg-btn p-2 rounded-md gap-1 hover:opacity-50 w-50" id="shopping-cart">
-                    <i class="fa-regular fa-cart-shopping text-btn"></i>
+                    <i class="fa-regular fa-cart-shopping text-primary"></i>
                     <p class="text-text">Carrito compra</p>
                 </div>
             </div>

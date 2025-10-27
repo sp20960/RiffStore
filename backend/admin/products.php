@@ -20,6 +20,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/products/db_sel
             '</div>' .
             '</div>' .
             '<div class="flex gap-3">';
+        include($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/forms/shopping_cart/form_shopping_cart_insert.php');
         include($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/forms/products/form_product_update_call.php');
         include($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/forms/products/form_product_delete_call.php');
         echo    '</div>' .
