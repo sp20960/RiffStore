@@ -1,10 +1,22 @@
 <?php
+$executed = false;
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/admin_header.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/products/db_select_products.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/shopping_cart/db_shopping_cart_insert_update_content.php');
 ?>
 
 
 <main class="flex flex-col gap-5 bg-[#f5f5dc] p-10 w-full">
+    <div class="absolute top-1 left-[50%] w-[calc(100vw-320px)]">
+        <?php if($executed){ ?>
+            <div class="bg-primary w-80 flex justify-center items-center py-5 rounded-md gap-2">
+           
+                <i class="fa-regular fa-check text-green-600"></i>
+                <p class="text-text font-bold">Producto insertado correctamente</p>
+           
+            </div>
+        <?php } ?>
+    </div>
     <div class="flex justify-end">
         <button class="bg-btn text-text p-3 rounded-md cursor-pointer hover:opacity-90" id="add-product-btn">Add product</button>
     </div>

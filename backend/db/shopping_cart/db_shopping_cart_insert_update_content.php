@@ -1,5 +1,4 @@
 <?php 
-require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/admin_header.php');
 
 if(isset($_POST['submit'])) {
     //FETCH ALL THE NECESSARY INFORMATION
@@ -21,15 +20,14 @@ if(isset($_POST['submit'])) {
         $sql = "INSERT INTO `023_shopping_carts`(customerId, productId, quantity) VALUES($customerId, $productId, 1);";
         //EXECUTE QUERY
         $result = mysqli_query($connect, $sql);
-        echo 'Producto añadido correctamente';
+        $executed = true;
     } else {
         //IF EXISTS THE PRODUCT IN THE SHOPPING CART INCREMENT QUANTITY
         $sql = "UPDATE 023_shopping_carts SET quantity = quantity + 1 WHERE customerId = $customerId AND productId = $productId;";
         $result = mysqli_query($connect, $sql);
-        echo  'Cantidad actulizada correctamente';
+        $executed = true;
     }
     //CLOSE DB CONNECTION
     mysqli_close($connect);
 }
-require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php')
 ?>
