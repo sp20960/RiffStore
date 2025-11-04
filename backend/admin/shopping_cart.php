@@ -24,7 +24,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/shopping_cart/d
                                 '<p class="text-text">Quantity</p>'.
                                 '<p class="text-text">'.$product['quantity'].'</p>'.
                               '</div>';
-                        include($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/forms/shopping_cart/form_shopping_cart_delete_call.php');
+                        require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/forms/shopping_cart/form_shopping_cart_delete_call.php');
            echo    '</div>' .
                 '</div>';
         }

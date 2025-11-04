@@ -1,7 +1,7 @@
 <?php
     require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/admin_header.php');
 
-    if ($_POST['productInsert'] == 'Send')  {
+    if (isset($_POST['submit']))  {
 
         unset($_POST['productInsert']);
         //GET DATA

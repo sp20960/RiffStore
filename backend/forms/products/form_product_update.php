@@ -88,7 +88,7 @@
                     ?>
                 </select>
             </div>
-            <input type="submit" value="Actualizar" class="bg-btn text-text rounded-md cursor-pointer">
+            <input type="submit" value="Actualizar" name="submit" class="bg-btn text-text rounded-md cursor-pointer">
         </form>  
     </div>
 </main>
