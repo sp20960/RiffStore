@@ -2,6 +2,8 @@
     if(isset($_POST['submit'])){
         // INITIALIZE SESSION
         session_start();
+        session_regenerate_id();
+
         // FETCH POST INFORMATION
         $email = $_POST['email'];
         $pwd = $_POST['pwd']; 

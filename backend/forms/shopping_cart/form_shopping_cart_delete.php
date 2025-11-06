@@ -9,7 +9,7 @@
             <div class="flex justify-center gap-40">
                 <button class="bg-btn text-text rounded-sm w-20 p-1 cursor-pointer">Atras</button>
                 <form action="/student023/shop/backend/db/shopping_cart/db_shopping_cart_delete.php" method="POST" class="">
-                    <input type="text" name="productId" value="<?php echo $productId ?>" hidden>
+                    <input type="text" name="productId" value="<?= htmlspecialchars($productId); ?>" hidden>
                     <input type="submit" name="submit" value="Aceptar" class="text-text bg-btn w-20 p-1 rounded-sm cursor-pointer">
                 </form>
             </div>

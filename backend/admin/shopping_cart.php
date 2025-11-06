@@ -33,7 +33,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/shopping_cart/d
         <div class="flex justify-center items-center w-[50%]">
             <div class="bg-primary w-[50%] flex flex-col justify-center items-center py-10 gap-5 rounded-xl">
                 <div class="">
-                    <h3 class="text-text text-2xl font-bold text-center">Total: <?php echo htmlspecialchars($totalPrice)?>€</h3>
+                    <h3 class="text-text text-2xl font-bold text-center">Total: <?= htmlspecialchars($totalPrice)?>€</h3>
                     <p class="text-text">Todos los precios incluyen <span class="font-bold">IVA</span></p>
                 </div>
                 <div>

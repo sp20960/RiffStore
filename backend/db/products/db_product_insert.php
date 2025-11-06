@@ -1,7 +1,6 @@
 <?php
-    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/admin_header.php');
-
-    if (isset($_POST['submit']))  {
+    if (isset($_POST['insert']))  {
+        $userAction = "insert";
 
         unset($_POST['productInsert']);
         //GET DATA
@@ -16,7 +15,7 @@
         $tremolo = $_POST["tremolo"];
         $categoryId = $_POST["categoryId"];
         $imagePath = "/student023/shop/frontend/images/products/ibanez_rg550/image.png";
-
+        
         //INSERT DATA
         include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
 
@@ -32,7 +31,4 @@
         //CLOSE DB CONEXION
         mysqli_close($connect);   
     }
-
-
-    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php')
 ?>

@@ -63,7 +63,7 @@
                 <input type="file" name="productImage" class="text-text border p w-100 rounded-md border-[#363636] bg-[#363636]">
             </div>
             <div class="flex justify-center">
-                <input type="submit" value="Send" name="submit" class="bg-btn text-text rounded-md px-10 py-3 cursor-pointer" >
+                <input type="submit" value="Send" name="insert" class="bg-btn text-text rounded-md px-10 py-3 cursor-pointer" >
             </div>
             
         </form>  

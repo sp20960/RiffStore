@@ -1,7 +1,6 @@
 <?php 
-    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/admin_header.php');
-
-    if (isset($_POST['submit'])){
+    if (isset($_POST['update'])){
+        $userAction = "update";
          //GET DATA
         $productId = $_POST["productId"];
         $productName = $_POST["productName"];
@@ -41,6 +40,4 @@
         //CLOSE DB CONEXION
         mysqli_close($connect);   
     }
-   
-    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php')
 ?>

@@ -5,6 +5,7 @@ $nickname = strtoupper($nickname);
 if (isset($_POST['logout']) && isset($_SESSION['user'])) {
     session_destroy();
     header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/login.php') ;
+    
 }
 ?>
 
@@ -15,10 +16,10 @@ if (isset($_POST['logout']) && isset($_SESSION['user'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de administracion</title>
-    <link href="/student023/shop/fontawesome/css/fontawesome.css" rel="stylesheet">
-    <link href="/student023/shop/fontawesome/css/solid.css" rel="stylesheet">
-    <link rel="stylesheet" href="/student023/shop/src/output.css">
-    <link rel="shortcut icon" href="/student023/shop/frontend/images/brand/favicon.png" type="image/x-icon">
+    <link href="/student023/shop/assets/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="/student023/shop/assets/fontawesome/css/solid.css" rel="stylesheet">
+    <link rel="stylesheet" href="/student023/shop/css/style.css">
+    <link rel="shortcut icon" href="/student023/shop/assets/images/brand/favicon.png" type="image/x-icon">
 </head>
 
 <body class="flex">
@@ -36,13 +37,13 @@ if (isset($_POST['logout']) && isset($_SESSION['user'])) {
                 </div>
             </div>
             <div class="border h-[60px] w-full border-white rounded-md flex items-center px-5">
-                <p class="text-text">Bienvenido al panel, <?= $nickname?></p>
+                <p class="text-text">Bienvenido al panel, <?= htmlspecialchars($nickname);?></p>
             </div>
         </div>
 
         <div class="flex flex-col px-15">
             <div class="cursor-pointer flex justify-center" id="logo">
-                <img src="/student023/shop/frontend/images/brand/logo_claro.png" alt="" class="w-10">
+                <img src="/student023/shop/assets/images/brand/logo_claro.png" alt="" class="w-10">
             </div>
 
             <div class="flex flex-col gap-5 pt-10">
