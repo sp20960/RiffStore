@@ -16,7 +16,7 @@ $messages = ["update" => "Actualizado correctamente", "delete" => "Eliminado cor
             <div class="bg-primary w-80 flex justify-center items-center py-5 rounded-md gap-2">
            
                 <i class="fa-regular fa-check text-green-600"></i>
-                <p class="text-text font-bold"><?php $messages["$userAction"] ?></p>
+                <p class="text-text font-bold"><?= $messages["$userAction"] ?></p>
            
             </div>
         <?php } ?>

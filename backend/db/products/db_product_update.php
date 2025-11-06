@@ -31,11 +31,6 @@
                 categoryId = '$categoryId' 
                 WHERE productId = '$productId'";
 
-        if (mysqli_query($connect,$sql)){
-            echo "Record updated successfully";
-        } else{
-            echo "ERROR";
-        }
 
         //CLOSE DB CONEXION
         mysqli_close($connect);   
