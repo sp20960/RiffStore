@@ -1,4 +1,4 @@
-<?php require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/guest_header.php'); ?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/guest_header.php'); ?>
     <main class="h-[calc(100vh-100px)] bg-[#5f595957] flex justify-center items-center">
         <div class="bg-primary w-[400px] h-[400px] flex flex-col items-center justify-center py-10 gap-10 rounded-4xl shadow-2xl">
             <h1 class="text-text text-[1.5rem]">Inicar sesión</h1>

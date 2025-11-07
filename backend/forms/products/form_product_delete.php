@@ -1,7 +1,9 @@
 <?php 
+    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/includes/admin_header.php');
     $productId = $_POST["productId"];
+    $_SESSION['delete'] = true;
+
 ?>
-<?php require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/admin_header.php');?>
 <main>
     <div class="flex justify-center items-center h-full p-10 bg-secondary w-[calc(100vw-280px)]">
         <div class="bg-primary w-100 flex flex-col gap-8 p-10 rounded-2xl">
@@ -16,4 +18,4 @@
         </div>
     </div>
 </main>
-<?php require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php');?>
+<?php require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/includes/footer.php');?>

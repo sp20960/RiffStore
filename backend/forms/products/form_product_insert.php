@@ -1,4 +1,8 @@
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/admin_header.php');?>
+<?php 
+    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/includes/admin_header.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/includes/products_functions.php');
+    $_SESSION['insert'] = true;
+?>
 <main>
     <div class="flex justify-center bg-secondary w-[calc(100vw-280px)] py-10">
         <form action="/student023/shop/backend/admin/products.php" method="POST" class="flex flex-col gap-10 p-10 bg-primary w-300 rounded-xl">
@@ -46,15 +50,7 @@
                 <label for="categoryId" class="text-text">Categoria</label>
                 <select name="categoryId" id="categoryId" class="text-text border p-2 rounded-md border-[#363636] bg-[#363636]">
                     <?php 
-                        $sql = 'SELECT * FROM `023_categories`;';
-
-                        require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
-                        $result = mysqli_query($connect, $sql);
-                        $categories = mysqli_fetch_all($result,MYSQLI_ASSOC);
-                        
-                        foreach($categories as $category) {
-                            echo '<option value="'.$category['categoryId'].'">'.$category['categoryName'].'</option>';
-                        }
+                       showCategories();
                     ?>
                 </select>
             </div>
@@ -70,4 +66,4 @@
     </div>
 
 </main>
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php');?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/includes/footer.php');?>

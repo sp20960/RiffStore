@@ -1,29 +1,23 @@
 <?php 
-    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/admin_header.php');
-
-    // GET DATA
-    $productId = $_POST["productId"];
-
-    // START DB CONNECTION
-    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
-
-    // COLLECT DATA
-    $sql = "SELECT * FROM 023_products WHERE productId = $productId";
-    $result = mysqli_query($connect, $sql);
-    $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/includes/admin_header.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/includes/products_functions.php');
+    $_SESSION['update'] = true;
     
+    $productId = $_POST["productId"];
+    $product = returnProductById($productId);
     // DECLARE VARIABLES TO SAVE PRODUCT INFO
-    $productName = $products[0]["productName"];
-    $description = $products[0]["description"];
-    $cost = $products[0]["cost"];
-    $pricePerUnit = $products[0]["pricePerUnit"];
-    $brand = $products[0]["brand"];
-    $frets = $products[0]["frets"];
-    $color = $products[0]["color"];
-    $bodyMaterial = $products[0]["bodyMaterial"];
-    $tremolo = $products[0]["tremolo"];
-    $categoryId = $products[0]["categoryId"];
 
+    $productId = $product[0]["productId"];
+    $productName = $product[0]["productName"];
+    $description = $product[0]["description"];
+    $cost = $product[0]["cost"];
+    $pricePerUnit = $product[0]["pricePerUnit"];
+    $brand = $product[0]["brand"];
+    $frets = $product[0]["frets"];
+    $color = $product[0]["color"];
+    $bodyMaterial = $product[0]["bodyMaterial"];
+    $tremolo = $product[0]["tremolo"];
+    $categoryId = $product[0]["categoryId"];
 ?>
 <main>
     <div class="flex justify-center p-10 bg-secondary w-[calc(100vw-280px)]">
@@ -72,19 +66,7 @@
                 <label for="categoryId" class="text-text">Categoria</label>
                 <select name="categoryId" id="tremolo" class="text-text border p-2 rounded-md border-[#363636] bg-[#363636]">
                     <?php 
-                        $sql = 'SELECT * FROM `023_categories`;';
-
-                        require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
-                        $result = mysqli_query($connect, $sql);
-                        $categories = mysqli_fetch_all($result,MYSQLI_ASSOC);
-                        
-                        foreach($categories as $category) {
-                            if ($category['categoryId'] != $categoryId) {
-                                echo '<option value="'.$category['categoryId'].'">'.$category['categoryName'].'</option>';
-                            } else {
-                                 echo '<option value="'.$category['categoryId'].'" selected>'.$category['categoryName'].'</option>';
-                            }
-                        }
+                        showCategories($categoryId);
                     ?>
                 </select>
             </div>
@@ -92,4 +74,4 @@
         </form>  
     </div>
 </main>
-<?php require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/footer.php');?>
+<?php require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/includes/footer.php');?>

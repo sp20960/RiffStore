@@ -1,6 +1,8 @@
 <?php 
-    if (isset($_POST['update'])){
+    if (isset($_POST['update']) && $_SESSION['update'] == true){
         $userAction = "update";
+        isset($_SESSION['delete']);
+
          //GET DATA
         $productId = $_POST["productId"];
         $productName = $_POST["productName"];

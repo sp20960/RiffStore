@@ -18,10 +18,10 @@ addEventListener('DOMContentLoaded', () => {
     })
 
     profile.addEventListener('click', () => {
-        if(profileDropdownContent.style.display === "none"){
-            profileDropdownContent.style.display = "flex"
+        if(profileDropdownContent.classList.contains('hidden')){
+            profileDropdownContent.classList.add('flex');
         } else {
-            profileDropdownContent.style.display = "none"
+            profileDropdownContent.classList.add('hidden')
         }
         
     })

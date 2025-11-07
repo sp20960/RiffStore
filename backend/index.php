@@ -1,5 +1,5 @@
     <?php
-        require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/admin_header.php');
+        require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/admin_header.php');
         require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/config/db_connect.php');
     ?>
     <main class="px-10 bg-secondary w-full">
@@ -12,4 +12,4 @@
             }
         ?>
     </main>
-    <?php require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/footer.php'); ?>
+    <?php require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/footer.php'); ?>

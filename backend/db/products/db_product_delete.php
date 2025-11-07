@@ -1,6 +1,7 @@
 <?php     
-    if(isset($_POST['delete']) ){
+    if(isset($_POST['delete']) && $_SESSION['delete'] == true){
         $userAction = "delete";
+        isset($_SESSION['delete']);
         //GET DATA
         $productId = $_POST["productId"];
 
