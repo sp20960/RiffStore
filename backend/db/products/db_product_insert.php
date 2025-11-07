@@ -1,8 +1,6 @@
 <?php
-    if (isset($_POST['insert']))  {
+    if (isset($_POST['insert']) )  {
         $userAction = "insert";
-
-        unset($_POST['productInsert']);
         //GET DATA
         $productName = $_POST["productName"];
         $description = $_POST["description"];
@@ -21,14 +19,8 @@
 
         $sql = "INSERT INTO 023_products (productName, `description`, cost, pricePerUnit, brand, frets, color, bodyMaterial, tremolo, categoryId, imagePath)
                 VALUES ('$productName', '$description', $cost, $pricePerUnit, '$brand', $frets, '$color', '$bodyMaterial', $tremolo, $categoryId, '$imagePath' )";
-
-        // CONFIRMATION MESSAGE
-        if (mysqli_query($connect,$sql)){
-            echo "New record created successfully";
-        } else{
-            echo "ERROR";
-        }
         //CLOSE DB CONEXION
-        mysqli_close($connect);   
+        mysqli_query($connect, $sql);
+        mysqli_close($connect);  
     }
 ?>

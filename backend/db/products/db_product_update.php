@@ -31,6 +31,7 @@
                 categoryId = '$categoryId' 
                 WHERE productId = '$productId'";
 
+        mysqli_query($connect, $sql);
 
         //CLOSE DB CONEXION
         mysqli_close($connect);   

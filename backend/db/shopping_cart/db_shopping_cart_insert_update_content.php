@@ -1,6 +1,7 @@
 <?php 
 
 if(isset($_POST['submit'])) {
+    $userAction = "cart";
     //FETCH ALL THE NECESSARY INFORMATION
     $productId = $_POST['productId'];
     $customerId = $_SESSION['user']['customerId'];
@@ -25,7 +26,6 @@ if(isset($_POST['submit'])) {
         $sql = "UPDATE 023_shopping_carts SET quantity = quantity + 1 WHERE customerId = $customerId AND productId = $productId;";
         $result = mysqli_query($connect, $sql);
     }
-    $executed = true;
     //CLOSE DB CONNECTION
     mysqli_close($connect);
 }

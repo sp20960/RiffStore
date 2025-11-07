@@ -8,7 +8,7 @@
             <h1 class="text-text text-center">Estas seguro que quieres eliminar este product_id <?= htmlspecialchars($productId);?></h1>
             <div class="flex justify-center gap-40">
                 <button class="bg-btn text-text rounded-sm w-20 p-1 cursor-pointer">Atras</button>
-                <form action="/student023/shop/backend/db/products/db_product_delete.php" method="POST" class="">
+                <form action="/student023/shop/backend/admin/products.php" method="POST" class="">
                     <input type="text" name="productId" value="<?= htmlspecialchars($productId); ?>" hidden>
                     <input type="submit" value="Aceptar"  name="delete" class="text-text bg-btn w-20 p-1 rounded-sm cursor-pointer">
                 </form>

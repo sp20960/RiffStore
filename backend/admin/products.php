@@ -6,7 +6,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/products/db_pro
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/products/db_product_update.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/products/db_product_delete.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/shopping_cart/db_shopping_cart_insert_update_content.php');
-$messages = ["update" => "Actualizado correctamente", "delete" => "Eliminado correctamente", "insert" => "Insertado correctamente" ];
+$messages = ["update" => "Actualizado correctamente", "delete" => "Eliminado correctamente", "insert" => "Insertado correctamente" ,"cart" => "Añadido al carrito" ];
 ?>
 
 
@@ -43,7 +43,7 @@ $messages = ["update" => "Actualizado correctamente", "delete" => "Eliminado cor
             '</div>';
     }
     ?>
-    <script src="/student023/shop/frontend/js/backend_products.js"></script>
+    <script src="/student023/shop/js/backend_products.js"></script>
 </main>
 
 <?php require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/footer.php'); ?>

@@ -1,5 +1,5 @@
 <?php     
-    if(isset($_POST['delete'])){
+    if(isset($_POST['delete']) ){
         $userAction = "delete";
         //GET DATA
         $productId = $_POST["productId"];
@@ -11,11 +11,8 @@
         $sql = "DELETE FROM `023_products`
                 WHERE productId = $productId";
 
-        if (mysqli_query($connect,$sql)){
-            echo "Record deleted successfully";
-        } else{
-            echo "ERROR";
-        }
+        mysqli_query($connect, $sql);
+    
 
         //CLOSE DB CONEXION
         mysqli_close($connect);                      
