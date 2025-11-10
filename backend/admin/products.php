@@ -26,12 +26,23 @@ $messages = ["update" => "Actualizado correctamente", "delete" => "Eliminado cor
     <div class="flex justify-end">
         <button class="bg-btn text-text p-3 rounded-md cursor-pointer hover:opacity-90" id="add-product-btn">Add product</button>
     </div>
+    <div>
+        <form action="">
+            <div class="relative">
+                <input type="search" name="product-name" id="search-input" placeholder="marca,nombre..." class="bg-white border-2 border-btn rounded-md h-10 w-80 outline-none">
+                <i class="fa-regular fa-search absolute left-72 top-4.5 fa-lg"></i>
+            </div>
+            
+        </form>
+    </div>
+    <div id="filtered-products" class="flex flex-col gap-4"></div>
+    <div class="flex flex-col gap-4" id="all-products">
     <?php
         foreach($products as $product) {
             showProduct($product);
         }
-        
     ?>
+    </div>
     <script src="/student023/shop/js/backend_products.js"></script>
 </main>
 

@@ -30,7 +30,7 @@ if (isset($_POST['logout']) && isset($_SESSION['user'])) {
                 <div class="absolute bg-white w-30 h-20 translate-x-[50%] translate-y-[20%] transform hidden flex-col rounded-sm" id="profile-dropdown-content">
                     <a href="" class="pl-2">Mi Cuenta</a>
                     <hr>
-                    <form action="/student023/shop/backend/admin_header.php" method="POST" class="pl-2">
+                    <form action="/student023/shop/backend/index.php" method="POST" class="pl-2">
                         <input type="submit" name="logout" value="Log Out" class="cursor-pointer">
                     </form>
                     <hr>
