@@ -14,7 +14,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/products_
 
 
 <main class="flex flex-col gap-5 bg-[#f5f5dc] p-10 w-full">
-    <div class="absolute top-1 left-[50%] w-[calc(100vw-320px)]">
+    <div class="absolute top-1 left-[50%] w-[calc(100vw-360px)]">
         <?php if($_SERVER['REQUEST_METHOD'] === "POST"){ ?>
             <div class="bg-primary w-80 flex justify-center items-center py-5 rounded-md gap-2">
            

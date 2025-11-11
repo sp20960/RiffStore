@@ -49,30 +49,23 @@
             $isSuccessful = false;
         } 
 
-        var_dump($_FILES["productImage"]);
-        var_dump($target_file);
-        var_dump(is_dir($target_dir));
-        var_dump(is_writable($target_dir));
-
         // Check if $uploadOk is set to 0 by an error
-        $uploadOk = true;;
         if ($isSuccessful) {
             if (!move_uploaded_file($_FILES["productImage"]["tmp_name"], $target_file)) {
                 $messages['insert']["message"] = "Ha habido un problema subiendo la imagen!";
                 $messages['insert']["type"] = "error";
             } 
+
+            $imagePath = "/student023/shop/assets/images/products/".strtolower(str_replace("", "_", $productName)).'/' .basename($_FILES["productImage"]["name"]);
+            include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
+            $sql = "INSERT INTO 023_products (productName, `description`, cost, pricePerUnit, brand, frets, color, bodyMaterial, tremolo, categoryId, imagePath)
+            VALUES ('$productName', '$description', $cost, $pricePerUnit, '$brand', $frets, '$color', '$bodyMaterial', $tremolo, $categoryId, '$imagePath' )";
+
+            //INERT PRODUCT
+            mysqli_query($connect, $sql);
+
+            //CLOSE DB CONEXION
+            mysqli_close($connect);  
         }     
-        
-        $imagePath = "/student023/shop/assets/images/products/".strtolower(str_replace("", "_", $productName)).'/' .basename($_FILES["productImage"]["name"]);
-        include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
-        $sql = "INSERT INTO 023_products (productName, `description`, cost, pricePerUnit, brand, frets, color, bodyMaterial, tremolo, categoryId, imagePath)
-        VALUES ('$productName', '$description', $cost, $pricePerUnit, '$brand', $frets, '$color', '$bodyMaterial', $tremolo, $categoryId, '$imagePath' )";
-
-        //INERT PRODUCT
-        mysqli_query($connect, $sql);
-
-        //CLOSE DB CONEXION
-        mysqli_close($connect);  
-        
     }
 ?>
