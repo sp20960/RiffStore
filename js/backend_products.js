@@ -12,10 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       console.log("object");
-      const response = await fetch(
-        "/student023/shop/backend/endpoints/db_product_search.php?productName=" +
-          userFilter
-      );
+      const response = await fetch("/student023/shop/backend/endpoints/db_product_search.php?productName=" + userFilter);
       const products = await response.json();
       showFilteredProducts(products);
     } catch (error) {}
@@ -23,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showFilteredProducts(products = "") {
     if (products.length === 0) {
-      console.log("object");
       allProducts.classList.remove("hidden");
       filteredPorducts.classList.add("hidden");
     } else {

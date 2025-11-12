@@ -5,14 +5,6 @@ addEventListener('DOMContentLoaded', () => {
     const profileDropdownContent = document.getElementById('profile-dropdown-content');
     const profile = document.getElementById('profile');
 
-    products.addEventListener('click', () => {
-        window.location.href = '/student023/shop/backend/admin/products.php'
-    })
-
-    shoppingCart.addEventListener('click', () => {
-        window.location.href = '/student023/shop/backend/admin/shopping_cart.php'
-    })
-
     logo.addEventListener('click', () => {
         window.location.href = '/student023/shop/backend/index.php'
     })

@@ -15,7 +15,7 @@
         $tremolo = $_POST["tremolo"];
         $categoryId = $_POST["categoryId"];
 
-         //FILE CHECKS AND TREATMENT
+        //FILE CHECKS AND TREATMENT
         $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/student023/shop/assets/images/products/".strtolower(str_replace("", "_", $productName));
         $target_file = $target_dir .'/'. basename($_FILES["productImage"]["name"]);
         $isSuccessful = true;
@@ -49,7 +49,7 @@
             $isSuccessful = false;
         } 
 
-        // Check if $uploadOk is set to 0 by an error
+        // Check if isSuccessful
         if ($isSuccessful) {
             if (!move_uploaded_file($_FILES["productImage"]["tmp_name"], $target_file)) {
                 $messages['insert']["message"] = "Ha habido un problema subiendo la imagen!";

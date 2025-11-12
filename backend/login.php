@@ -36,7 +36,7 @@ $errors = [];
 
             $user = mysqli_fetch_assoc($result);
             // CHECK IF CUSTOMER EXISTS
-            if ($user && $user['rol'] == "admin") {
+            if ($user) {
             
                 $_SESSION['user'] = $user;
                 // REDIRECT USER TO THE ADMINISTRATOR PANEL
