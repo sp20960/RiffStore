@@ -5,7 +5,7 @@
         $productId = $_GET['productId'];
         $customerId = $_SESSION['user']['customerId'];
 
-        $sql = "UPDATE FROM `023_shopping_carts` 
+        $sql = "UPDATE `023_shopping_carts` 
                 SET quantity = $quantity 
                 WHERE productId = $productId AND customerId = $customerId;";
 
@@ -14,6 +14,7 @@
         
         $sql = "SELECT subtotal FROM `023_shopping_carts_view` WHERE customerId = $customerId;";
         $result = mysqli_query($connect, $sql);
+        mysqli_close($connect);
         $cart = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
         echo json_encode($cart);

@@ -1,10 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-  // CAROUSEL FUNCTIONALITY
+  const urlProductsEndpoint = "/student023/shop/backend/endpoints/db_select_available_products.php"
   const nextArrow = document.querySelector(".next");
   const prevArrow = document.querySelector(".prev");
   const images = document.querySelectorAll(".carousel img");
+  const listProducts = document.getElementById('list-product');
 
+  async function loadProducts() {
+    try {
+      const response = await fetch(urlProductsEndpoint);
+      const products = await response.json();
+
+      showProducts(products);
+    } catch (error) {
+      listProducts.innerHTML = <h1>¡Ha habido un problema cargando los productos!</h1>;
+    }
+  }
+
+  function showProducts(products) {
+    if(products != null && products.length != 0){
+      listProducts.innerHTML = products
+      .map((product) => 
+        `
+        
+        `
+      ).join("");
+    } else{
+      listProducts.innerHTML = <h1>¡No hay productos disponibles!</h1>;
+    }
+  }
+
+  // CAROUSEL FUNCTIONALITY
   function nextImage() {
     let actualIndex;
     images.forEach((image, index) => {

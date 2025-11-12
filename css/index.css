@@ -10,7 +10,7 @@ main h1 {
 }
 
 main h2 {
-  padding-top: 20px;
+  padding:40px 0 40px 20px;
   text-align: start;
   font-size: 1.5rem;
   grid-column: span 2;
@@ -67,7 +67,7 @@ img.active {
   right: 10px;
 }
 
-main section:nth-child(3) {
+main section:nth-child(4) {
   padding: 10px 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -87,9 +87,9 @@ main section:nth-child(3) {
   border-radius: 10px;
 }
 
-  .card p {
+.card p {
     font-size: 1.4rem;
-  }
+}
 
 .card img {
   width: 130px;
@@ -139,12 +139,8 @@ main section:nth-child(3) {
 }
 
 @media (min-width: 577px) and (max-width: 1024px) {
-  main section:nth-child(3) {
+  main section:nth-child(4) {
     grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  main h2 {
-    grid-column: span 3;
   }
 
   .card {
@@ -157,12 +153,8 @@ main section:nth-child(3) {
 }
 
 @media (min-width: 1100px) {
-  main section:nth-child(3) {
+  main section:nth-child(4) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-
-  main h2 {
-    grid-column: span 4;
   }
 
   .card {
