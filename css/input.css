@@ -1,11 +1,11 @@
 @font-face {
   font-family: LatoRegular;
-  src: url("/frontend/fonts/Lato-Regular.ttf") format("ttf");
+  src: url("/student023/shop/assets/fonts/Lato-Regular.ttf");
 }
 
 @font-face {
-  font-family: LatoRegular;
-  src: url("/frontend/fonts/Lato-Bold.ttf") format("ttf");
+  font-family: LatoBold;
+  src: url("/student023/shop/assets/fonts/Lato-Bold.ttf");
 }
 
 @import "tailwindcss";
@@ -20,5 +20,7 @@
 }
 
 @layer components {
-  
+  .link{
+    @apply text-text text-[2rem] font-latobold cursor-pointer
+  }
 }

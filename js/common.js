@@ -3,17 +3,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.querySelector('.fa-x');
     const nav = document.querySelector('header nav');
     const dropwDownMenuCaret = document.getElementById('dropdown-menu-caret');
-    const dropDownMenu = document.querySelector('.dropdown-content')
-
+    const dropDownMenu = document.querySelector('#dropdown-content')
+    console.log(nav);
     barsMenu.addEventListener('click', () => {  
-        nav.classList.add('nav-visible')
+        nav.classList.remove('hidden')
+        nav.classList.add('flex')
+        console.log("object");
     });
 
     closeBtn.addEventListener('click', () => {
-        nav.classList.remove('nav-visible')
+        nav.classList.remove('flex')
+        nav.classList.add('hidden')
     });
 
     dropwDownMenuCaret.addEventListener('click', () => { 
-        dropDownMenu.classList.toggle('nav-visible')
+        dropDownMenu.classList.toggle('flex!')
     });
 });
