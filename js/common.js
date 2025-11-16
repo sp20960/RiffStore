@@ -3,20 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.querySelector('.fa-x');
     const nav = document.querySelector('header nav');
     const dropwDownMenuCaret = document.getElementById('dropdown-menu-caret');
-    const dropDownMenu = document.querySelector('#dropdown-content')
-    console.log(nav);
+    const dropDownMenu = document.getElementById('dropdown-content')
+    
     barsMenu.addEventListener('click', () => {  
-        nav.classList.remove('hidden')
-        nav.classList.add('flex')
-        console.log("object");
+        nav.style.display = 'flex'
     });
 
     closeBtn.addEventListener('click', () => {
-        nav.classList.remove('flex')
-        nav.classList.add('hidden')
+        nav.style.display = 'none'
     });
 
     dropwDownMenuCaret.addEventListener('click', () => { 
-        dropDownMenu.classList.toggle('flex!')
+        if(dropDownMenu.style.display === 'none'){
+            dropDownMenu.style.display = 'flex'
+        } else {
+            dropDownMenu.style.display = 'none'
+        }
     });
 });

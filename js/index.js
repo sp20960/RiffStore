@@ -5,29 +5,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const images = document.querySelectorAll(".carousel img");
   const listProducts = document.getElementById('list-product');
 
-  async function loadProducts() {
-    try {
-      const response = await fetch(urlProductsEndpoint);
-      const products = await response.json();
+  // async function loadProducts() {
+  //   try {
+  //     const response = await fetch(urlProductsEndpoint);
+  //     const products = await response.json();
 
-      showProducts(products);
-    } catch (error) {
-      listProducts.innerHTML = <h1>¡Ha habido un problema cargando los productos!</h1>;
-    }
-  }
+  //     showProducts(products);
+  //   } catch (error) {
+  //     listProducts.innerHTML = <h1>¡Ha habido un problema cargando los productos!</h1>;
+  //   }
+  // }
 
-  function showProducts(products) {
-    if(products != null && products.length != 0){
-      listProducts.innerHTML = products
-      .map((product) => 
-        `
+  // function showProducts(products) {
+  //   if(products != null && products.length != 0){
+  //     listProducts.innerHTML = products
+  //     .map((product) => 
+  //       `
         
-        `
-      ).join("");
-    } else{
-      listProducts.innerHTML = <h1>¡No hay productos disponibles!</h1>;
-    }
-  }
+  //       `
+  //     ).join("");
+  //   } else{
+  //     listProducts.innerHTML = <h1>¡No hay productos disponibles!</h1>;
+  //   }
+  // }
 
   // CAROUSEL FUNCTIONALITY
   function nextImage() {
