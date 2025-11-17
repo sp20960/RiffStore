@@ -58,6 +58,7 @@ header {
 
 img[alt="logo"] {
   width: 30px;
+  cursor: pointer;
 }
 
 nav {

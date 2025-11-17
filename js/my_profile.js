@@ -1,9 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const btnNoAddress = document.getElementById("button-no-address");
-    const containerNoAddress = document.getElementById('container-no-address');
+    const containerAddAddress = document.getElementById('container-add-address');
+    const closeAddAddress = document.getElementById('close-add-address');
 
     btnNoAddress.addEventListener('click', () => {
-        containerNoAddress.classList.add('flex!')
-        containerNoAddress.parentElement.classList.remove('hover:scale-101')
+        containerAddAddress.classList.add('flex!')
+    })
+
+    closeAddAddress.addEventListener('click', () => {
+        containerAddAddress.classList.remove('flex!')
     })
 })

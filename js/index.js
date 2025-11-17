@@ -4,14 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevArrow = document.querySelector(".prev");
   const images = document.querySelectorAll(".carousel img");
   const listProducts = document.getElementById('list-products');
-  const products = document.querySelectorAll('.card');
 
   async function loadProducts() {
     try {
       const response = await fetch(urlProductsEndpoint);
       const products = await response.json();
-
       showProducts(products);
+
     } catch (error) {
       listProducts.innerHTML = "<h1>¡Ha habido un problema cargando los productos!</h1>";
     }
@@ -42,18 +41,19 @@ document.addEventListener("DOMContentLoaded", () => {
             </article>
         `
       ).join("");
-      addEventProducts()
+      addEventProducts();
     } else{
       listProducts.innerHTML = "<h1>¡No hay productos disponibles!</h1>";
     }
   }
 
   function addEventProducts() {
+    const products = document.querySelectorAll('.card');
+
     products.forEach((product) => {
       product.addEventListener('click', (e) => {
-        const productId = e.target
-        console.log(productId);
-        location.href = "asd"
+        const productId = product.dataset.productId
+        location.href = `views/product_detail.html?id=${productId}`
       })
     })
   }

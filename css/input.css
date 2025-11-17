@@ -37,7 +37,7 @@
   }
 
   .grid-element {
-    @apply flex justify-between p-2 border-b border-primary
+    @apply flex justify-between p-5 border-b border-primary
   }
 
   .review{
@@ -46,5 +46,13 @@
 
   .link{
     @apply text-text text-[2rem] font-latobold cursor-pointer
+  }
+
+  .active-image{
+    @apply border-t-2 border-accent
+  }
+
+  .titol-footer {
+    @apply text-text p-[5px_0_5px_10px] font-latobold sm:text-[1.4rem] sm:p-0 lg:text-2xl lg:p-0
   }
 }
