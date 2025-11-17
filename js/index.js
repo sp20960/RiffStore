@@ -1,33 +1,62 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const urlProductsEndpoint = "/student023/shop/backend/endpoints/db_select_available_products.php"
+  const urlProductsEndpoint = "/student023/shop/backend/endpoints/db_products_enabled.php"
   const nextArrow = document.querySelector(".next");
   const prevArrow = document.querySelector(".prev");
   const images = document.querySelectorAll(".carousel img");
-  const listProducts = document.getElementById('list-product');
+  const listProducts = document.getElementById('list-products');
+  const products = document.querySelectorAll('.card');
 
-  // async function loadProducts() {
-  //   try {
-  //     const response = await fetch(urlProductsEndpoint);
-  //     const products = await response.json();
+  async function loadProducts() {
+    try {
+      const response = await fetch(urlProductsEndpoint);
+      const products = await response.json();
 
-  //     showProducts(products);
-  //   } catch (error) {
-  //     listProducts.innerHTML = <h1>¡Ha habido un problema cargando los productos!</h1>;
-  //   }
-  // }
+      showProducts(products);
+    } catch (error) {
+      listProducts.innerHTML = "<h1>¡Ha habido un problema cargando los productos!</h1>";
+    }
+  }
 
-  // function showProducts(products) {
-  //   if(products != null && products.length != 0){
-  //     listProducts.innerHTML = products
-  //     .map((product) => 
-  //       `
-        
-  //       `
-  //     ).join("");
-  //   } else{
-  //     listProducts.innerHTML = <h1>¡No hay productos disponibles!</h1>;
-  //   }
-  // }
+  function showProducts(products) {
+    if(products != null && products.length != 0){
+      listProducts.innerHTML = products
+      .map((product) => 
+        `
+          <article class="card" data-product-id="${product.productId}">
+                <img src="${product.imagePath}" alt="">
+                <div class="card-stars">
+                    <i class="fa-regular fa-star fa-sm"></i>
+                    <i class="fa-regular fa-star fa-sm"></i>
+                    <i class="fa-regular fa-star fa-sm"></i>
+                    <i class="fa-regular fa-star fa-sm"></i>
+                    <i class="fa-regular fa-star fa-sm"></i>
+                    <p>(0)</p>
+                </div>
+                <div class="card-product-info">
+                    <h3>${product.productName}</h3>
+                    <p>${product.pricePerUnit} €</p>
+                </div>
+                <div class="card-buy">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+            </article>
+        `
+      ).join("");
+      addEventProducts()
+    } else{
+      listProducts.innerHTML = "<h1>¡No hay productos disponibles!</h1>";
+    }
+  }
+
+  function addEventProducts() {
+    products.forEach((product) => {
+      product.addEventListener('click', (e) => {
+        const productId = e.target
+        console.log(productId);
+        location.href = "asd"
+      })
+    })
+  }
 
   // CAROUSEL FUNCTIONALITY
   function nextImage() {
@@ -75,4 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
   prevArrow.addEventListener("click", () => {
     prevImage();
   });
+  
+  loadProducts();
 });

@@ -11,16 +11,13 @@
 </head>
 <body>              
 
-    <header class="p-5 bg-primary flex w-full items-center justify-between fixed z-[1000]
-                   sm:justify-evenly 
-                   lg:justify-center lg:gap-[70px]">
+    <header class="header sm:justify-evenly lg:justify-center lg:gap-[70px]">
 
-        <i class="fa-solid fa-bars fa-2xl text-text cursor-pointer lg:hidden!"></i>
+        <i class="fa-solid fa-bars fa-2xl icon lg:hidden!"></i>
 
         <img src="/student023/shop/assets/images/brand/logo_claro.png" alt="logo" class="w-8">
 
-        <nav class="bg-primary fixed hidden flex-col gap-[10px] px-5 py-10 
-                    top-0 right-0 h-screen w-screen z-[1000] text-text
+        <nav class="nav-mobile
                     lg:bg-transparent lg:static lg:flex lg:flex-row lg:gap-10 lg:p-0 
                     lg:top-auto lg:right-auto lg:h-auto lg:w-auto lg:z-0">
 
@@ -36,11 +33,7 @@
             </p>
 
             <div id="dropdown-content"
-                 class="hidden flex-col gap-[10px] pl-[25px] 
-                        lg:px-5 lg:py-2.5 lg:flex-col lg:gap-[10px]
-                        lg:absolute lg:bottom-0 lg:translate-x-[70%] lg:translate-y-[70%]
-                        lg:border lg:rounded-lg lg:border-accent 
-                        lg:bg-primary/60">
+                 class="hidden flex-col gap-[10px] pl-[25px] dropdown-content-desktop">
                 <a href="" class="link sm:text-5xl lg:text-xl">Guitarras electricas</a>
                 <a href="" class="link sm:text-5xl lg:text-xl">Guitarras acústicas</a>
             </div>
@@ -55,18 +48,18 @@
             <i class="fa-solid fa-search fa-xl absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2"></i>
         </form>
 
-        <i class="fa-solid fa-circle-user fa-2xl text-text cursor-pointer"></i>
-        <i class="fa-solid fa-cart-shopping fa-2xl text-text cursor-pointer"></i>
+        <i class="fa-solid fa-circle-user fa-2xl icon"></i>
+        <i class="fa-solid fa-cart-shopping fa-2xl icon"></i>
     </header>
 
     <main class="px-5">
-        <div class="pt-[115px] pb-4">
+        <section class="pt-[115px] pb-4">
             <i class="fa-solid fa-arrow-left"></i>
             <a class="font-latobold">Guitarras electricas</a>
-        </div>
+        </section>
 
         <h1 class="text-2xl font-latobold">Ibanez RG550</h1>
-        <div class="flex items-center pb-2 gap-1">
+        <section class="flex items-center pb-2 gap-1">
             <i class="fa-regular fa-star"></i>
             <i class="fa-regular fa-star"></i>
             <i class="fa-regular fa-star"></i>
@@ -75,37 +68,103 @@
             <div>
                 <p class="pb-[2px]">(0)</p>
             </div>
-        </div>
+        </section>
 
-        <img id="actual-image" src="/student023/shop/assets/images/products/ibanez_rg550/imagen1.jpg" alt="">
+        <section class="flex flex-col items-center gap-2">
+            <img id="actual-image" src="/student023/shop/assets/images/products/ibanez_rg550/imagen1.jpg" alt="">
+
+            <div id="all-images" class="flex justify-center bg-secondary rounded-xl shadow flex-wrap w-full">
+                <img class="hover:scale-110 transition-all" src="/student023/shop/assets/images/products/ibanez_rg550/imagen1.png" width="80" height="80" alt="">
+                <img class="hover:scale-110 transition-all" src="/student023/shop/assets/images/products/ibanez_rg550/imagen2.png" width="80" height="80" alt="">
+                <img class="hover:scale-110 transition-all" src="/student023/shop/assets/images/products/ibanez_rg550/imagen3.png" width="80" height="80" alt="">
+                <img class="hover:scale-110 transition-all" src="/student023/shop/assets/images/products/ibanez_rg550/imagen4.png" width="80" height="80" alt="">
+            </div>
+        </section>
         
-        <div id="all-images" class="flex justify-center bg-secondary rounded-xl shadow flex-wrap">
-            <img class="hover:scale-110 transition-all" src="/student023/shop/assets/images/products/ibanez_rg550/imagen1.png" width="80" height="80" alt="">
-            <img class="hover:scale-110 transition-all" src="/student023/shop/assets/images/products/ibanez_rg550/imagen2.png" width="80" height="80" alt="">
-            <img class="hover:scale-110 transition-all" src="/student023/shop/assets/images/products/ibanez_rg550/imagen3.png" width="80" height="80" alt="">
-            <img class="hover:scale-110 transition-all" src="/student023/shop/assets/images/products/ibanez_rg550/imagen4.png" width="80" height="80" alt="">
-        </div>
-
         <section class="pt-5">
             <h1 class="text-3xl font-latobold">1200 €</h1>
             <p class="font-latoregular">Todos los precios incluyen <span class="font-latobold">IVA</span></p>
             <div class="flex py-5">
                 <form action="" class="flex gap-2 items-center w-full">
-                    <input class="w-13 bg-secondary p-2 rounded-4xl" type="number" value="1">
-                    <button class="bg-secondary w-full rounded-2xl py-2 font-latobold" type="submit">A LA CESTA</button>
+                    <input class="w-13 bg-accent border border-primary p-2 rounded-4xl" type="number" value="1">
+                    <button class="bg-accent w-full rounded-2xl py-2 font-latobold border border-primary" type="submit">A LA CESTA</button>
                 </form>
             </div>
             <hr>
             <div>
-                <h1 class="pt-5 text-xl font-latobold">Descripción</h1>
+                <h2 class="pt-5 text-xl font-latobold">Descripción</h2>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus reiciendis corporis quasi, sint quisquam cumque aut vero quos nulla fugiat aperiam assumenda suscipit magni sequi dolore consequuntur nihil beatae iure!
                 Corporis accusantium nesciunt perspiciatis? Officiis magnam doloribus omnis eos qui reprehenderit impedit iure vitae totam praesentium quasi, enim suscipit rerum repellat officia cum deserunt perferendis voluptatem est corporis quae labore.</p>
             </div>
         </section>
 
-        <div>
-
-        </div>
+        <section class="py-5">
+            <h2 class="pb-2 text-xl font-latobold">Guitarra electrica</h2>
+            <div class="grid border border-primary font-latobold rounded">
+                <div class="grid-element row-start-1">
+                    <p>Número de articulo</p>
+                    <p>12</p>
+                </div>
+                <div class="grid-element row-start-2">
+                    <p>Marca</p>
+                    <p>Ibanez</p>
+                </div>
+                <div class="grid-element row-start-3">
+                    <p>Numero de trastes</p>
+                    <p>24</p>
+                </div>
+                <div class="grid-element row-start-4">
+                    <p>Color</p>
+                    <p>Azul</p>
+                </div>
+                <div class="grid-element row-start-5">
+                    <p>Material del cuerpo</p>
+                    <p>Arce</p>
+                </div>
+                <div class="grid-element row-start-6 border-0">
+                    <p>Tremolo</p>
+                    <p>Si</p>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section class="flex flex-col pb-10">
+            <h2 class="py-5 text-xl font-latobold text-center"><span>2</span> Valoraciones de los clientes</h2>
+            <div class="flex flex-col gap-10">
+                <div class="review">
+                    <div class="flex gap-2">
+                        <img src="/student023/shop/assets/images/customers/default.png" alt="" width="50" height="50">
+                        <div>
+                            <h3 class="text-lg font-latobold">Guitarra muy buena por el precio</h3>
+                            <div>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est unde sint culpa ipsum minima iste eveniet provident ipsam, ratione illum praesentium voluptate exercitationem nam asperiores dicta deleniti odit voluptatum neque?</p>
+                </div>
+                <div class="review">
+                    <div class="flex gap-2">
+                        <img src="/student023/shop/assets/images/customers/default.png" alt="" width="50" height="50">
+                        <div>
+                            <h3 class="text-lg font-latobold">Guitarra muy buena por el precio</h3>
+                            <div>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est unde sint culpa ipsum minima iste eveniet provident ipsam, ratione illum praesentium voluptate exercitationem nam asperiores dicta deleniti odit voluptatum neque?</p>
+                </div>
+            </div> 
+        </section>
     </main>
 
     <footer class="bg-primary flex flex-col 
@@ -131,7 +190,7 @@
                               sm:pl-0 lg:pl-0">Contacto</a>
         </div>
 
-        <hr class="text-text">
+        <hr class="text-text sm:hidden lg:hidden">
 
         <!-- BUSINESS -->
         <div class="footer-business sm:col-start-2 sm:flex sm:flex-col sm:gap-[10px]
@@ -169,7 +228,7 @@
                        sm:text-[1.4rem] sm:p-0
                        lg:text-2xl lg:p-0">Métodos de pago</h2>
 
-            <div class="flex gap-2 h-7 pl-5 sm:p-0">
+            <div class="flex gap-2 h-7 pl-5 sm:p-0 sm:flex-wrap">
                 <img src="/student023/shop/assets/images/payment_methods/visa.png">
                 <img src="/student023/shop/assets/images/payment_methods/mastercard.png" class="lg:pl-0">
                 <img src="/student023/shop/assets/images/payment_methods/google.png">
