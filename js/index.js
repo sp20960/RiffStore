@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch(urlProductsEndpoint);
       const products = await response.json();
       showProducts(products);
-
     } catch (error) {
       listProducts.innerHTML = "<h1>¡Ha habido un problema cargando los productos!</h1>";
     }
