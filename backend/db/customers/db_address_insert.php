@@ -19,5 +19,4 @@
         mysqli_query($connect, $sql);
         mysqli_close($connect);
     }
-
 ?>

@@ -83,7 +83,7 @@ nav {
   cursor: pointer;
 }
 
-a {
+nav a, footer a {
   text-decoration: none;
   color: var(--text);
   font-size: 2rem;
@@ -313,7 +313,7 @@ footer small {
     display: none;
   }
 
-  a {
+  nav a {
     font-size: 1.2rem;
   }
 

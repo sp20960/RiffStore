@@ -1,10 +1,14 @@
 <?php 
+session_start();
+if (isset($_SESSION['user'])){
+    header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/customer/my_profile.php') ;
+}
+
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/guest_header.php'); 
 $errors = [];
 
  if(isset($_POST['submit'])){
         // INITIALIZE SESSION
-        session_start();
         session_regenerate_id();
 
         // FETCH POST INFORMATION
@@ -37,7 +41,6 @@ $errors = [];
             $user = mysqli_fetch_assoc($result);
             // CHECK IF CUSTOMER EXISTS
             if ($user) {
-            
                 $_SESSION['user'] = $user;
                 // REDIRECT USER TO THE ADMINISTRATOR PANEL
                 header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/index.php') ;

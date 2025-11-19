@@ -4,7 +4,7 @@ $nickname = $_SESSION['user']['firstName'] ?? 'guest';
 $nickname = strtoupper($nickname);
 if (isset($_POST['logout']) && isset($_SESSION['user'])) {
     session_destroy();
-    header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/login.php') ;
+    header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/') ;
     
 }
 ?>

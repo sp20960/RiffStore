@@ -1,7 +1,9 @@
 <?php
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/admin_header.php');
 require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/db/customers/db_address_insert.php');
+require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/db/customers/db_address_update.php');
 require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/includes/customers_functions.php');
+$addresses = returnAddressesCustomer($_SESSION['user']['customerId']);
 $userData = returnCustomerData($_SESSION['user']['customerId']);
 ?>
 
@@ -21,7 +23,7 @@ $userData = returnCustomerData($_SESSION['user']['customerId']);
 
         <section class="col-start-2 col-end-4 row-start-1 w-220 bg-primary/90 shadow-2xl rounded-2xl flex flex-col hover:scale-101 transition-all p-5">
             <h3 class="text-text text-2xl font-latobold">Account Details</h3>
-            <form id="form-update-customer-info" action="my_profile.php" class="flex gap-10 py-7 px-10">
+            <form id="form-update-customer-info" action="my_profile.php" method="POST" class="flex gap-10 py-7 px-10">
                 <div class="flex flex-col gap-5 w-80">
                     <div class="flex flex-col">
                         <label for="first-name" class="text-text font-latoregular">Name</label>
@@ -54,10 +56,60 @@ $userData = returnCustomerData($_SESSION['user']['customerId']);
 
     </div>
 
-    <section class="bg-primary/90 w-200 h-50 rounded-2xl shadow-2xl hover:scale-101 transition-all p-5">
-        <h2 class="text-text text-2xl font-latobold pb-5">Edit Addresses</h2>
+    <section class="bg-primary/90 w-200 min-h-80 max-h-100 rounded-2xl shadow-2xl hover:scale-101 transition-all p-5 flex flex-col gap-5 overflow-y-scroll">
+        <h2 class="text-text text-2xl font-latobold">Edit Addresses</h2>
+        <?php if(isset($addresses[0]['addressId'])):?>
+            <?php for($i = 0; $i < count($addresses); $i++):?>
+                <div id="show-address-info">
+                    <div class="flex items-center">
+                        <h1 class="text-text text-xl underline cursor-pointer">Address <?= $i ?></h1><i class="fa-regular fa-caret-down icon"></i>
+                    </div>
+                    <div class="pt-5 hidden">
+                        <form action="my_profile.php" method="POST" class="flex flex-col gap-10">
+                            <input type="hidden" name="addressId" value="<?= $addresses[$i]['addressId'] ?>">
+                            <div class="flex flex-col">
+                                <input type="text" id="address" name="address" placeholder="Address and number *" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular" value="<?= $addresses[$i]['address'] ?>" required>
+                            </div>
+
+                            <div class="flex flex-col">
+                                <input type="text" id="additional-data" name="additionalData" placeholder="Additional data" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular" value="<?= $addresses[$i]['additionalData'] ?>">
+                            </div>
+
+                            <div class="flex gap-5">
+                                <select name="province" class="bg-text rounded p-2">
+                                    <option value="Andalucia">Andalucia</option>
+                                        <option value="Aragon" <?= ($addresses[$i]['province'] == 'Aragon') ? 'selected' : '' ?>>Aragon</option>
+                                        <option value="Asturias" <?= ($addresses[$i]['province'] == 'Asturias') ? 'selected' : '' ?>>Asturias</option>
+                                        <option value="Baleares" <?= ($addresses[$i]['province'] == 'Baleares') ? 'selected' : '' ?>>Baleares</option>
+                                        <option value="Ceuta" <?= ($addresses[$i]['province'] == 'Ceuta') ? 'selected' : '' ?>>Ceuta</option>
+                                        <option value="Canarias" <?= ($addresses[$i]['province'] == 'Canarias') ? 'selected' : '' ?>>Canarias</option>
+                                        <option value="Cantabria" <?= ($addresses[$i]['province'] == 'Cantabria') ? 'selected' : '' ?>>Cantabria</option>
+                                        <option value="Castilla-La Mancha" <?= ($addresses[$i]['province'] == 'Castilla-La Mancha') ? 'selected' : '' ?>>Castilla-La Mancha</option>
+                                        <option value="Castilla y Leon" <?= ($addresses[$i]['province'] == 'Castilla y Leon') ? 'selected' : '' ?>>Castilla y Leon</option>
+                                        <option value="Cataluna" <?= ($addresses[$i]['province'] == 'Cataluna') ? 'selected' : '' ?>>Cataluna</option>
+                                        <option value="Comunidad Valenciana" <?= ($addresses[$i]['province'] == 'Comunidad Valenciana') ? 'selected' : '' ?>>Comunidad Valenciana</option>
+                                        <option value="Extremadura" <?= ($addresses[$i]['province'] == 'Extremadura') ? 'selected' : '' ?>>Extremadura</option>
+                                        <option value="Galicia" <?= ($addresses[$i]['province'] == 'Galicia') ? 'selected' : '' ?>>Galicia</option>
+                                        <option value="La Rioja" <?= ($addresses[$i]['province'] == 'La Rioja') ? 'selected' : '' ?>>La Rioja</option>
+                                        <option value="Madrid" <?= ($addresses[$i]['province'] == 'Madrid') ? 'selected' : '' ?>>Madrid</option>
+                                        <option value="Melilla" <?= ($addresses[$i]['province'] == 'Melilla') ? 'selected' : '' ?>>Melilla</option>
+                                        <option value="Murcia" <?= ($addresses[$i]['province'] == 'Murcia') ? 'selected' : '' ?>>Murcia</option>
+                                        <option value="Navarra" <?= ($addresses[$i]['province'] == 'Navarra') ? 'selected' : '' ?>>Navarra</option>
+                                        <option value="Pais Vasco" <?= ($addresses[$i]['province'] == 'Pais Vasco') ? 'selected' : '' ?>>Pais Vasco</option>
+                                </select>
+                                <input type="text" id="city" name="city" placeholder="City*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-50" value="<?= $addresses[$i]['city'] ?>" required>
+                                <input type="number" id="zip-code" name="zipCode" placeholder="ZIP code*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-30" minlength="5" maxlength="5" value="<?= $addresses[$i]['zipCode'] ?>" required>
+                            </div>
+                            <div class="flex justify-center">
+                                <button name="updateAddress" class="bg-btn text-text font-latobold px-10 py-2 cursor-pointer hover:opacity-60 rounded-sm" type="submit">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            <?php endfor ?>
+        <?php endif ?>
         <div class="border border-black rounded bg-text w-50 p-2 hover:opacity-60">
-            <button id="button-no-address" class="cursor-pointer"><i class="fa-regular fa-plus"></i>Añade una direccion</button>
+            <button id="button-no-address" class="cursor-pointer"><i class="fa-regular fa-plus"></i>Add an address</button>
         </div>
     </section>
 

@@ -41,20 +41,43 @@ document.addEventListener("DOMContentLoaded", () => {
         `
       ).join("");
       addEventProducts();
+      addEventAddToCart()
     } else{
       listProducts.innerHTML = "<h1>¡No hay productos disponibles!</h1>";
     }
   }
 
   function addEventProducts() {
-    const products = document.querySelectorAll('.card');
+    const products = document.querySelectorAll('.card img');
 
     products.forEach((product) => {
       product.addEventListener('click', (e) => {
-        const productId = product.dataset.productId
-        location.href = `views/product_detail.html?id=${productId}`
+          const productId = product.dataset.productId;
+          location.href = `views/product_detail.html?id=${productId}`;
       })
     })
+  }
+
+  function addEventAddToCart(){
+    const buttons = document.querySelectorAll('.card-buy');
+    
+    buttons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        const productId = e.target.parentElement.dataset.productId;
+        addToShoppingCart(productId);
+      })
+    })
+  }
+
+  async function addToShoppingCart(productId) {
+    const endpointnUrl = `/student023/shop/backend/endpoints/db_shopping_cart_insert.php?productId=${productId}`
+    try {
+      const response = fetch(endpointnUrl)
+      const result = response.
+      console.log(result);
+    } catch (error) {
+      
+    }
   }
 
   // CAROUSEL FUNCTIONALITY

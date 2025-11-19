@@ -11,5 +11,6 @@
                 echo "<p>It works!</p>";
             }
         ?>
+        <a href="../index.html" class="text-2xl bg-btn rounded p-5">Riff Store</a>
     </main>
     <?php require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/footer.php'); ?>
