@@ -1,6 +1,6 @@
 <?php 
  if(isset($_POST['updateCustomer'])){
-        $customerId = $_SESSION['customerId'];
+        $customerId = $_SESSION['user']['customerId'];
         $firstName = $_POST['firstName'];
         $nif = $_POST['nif'];
         $phone = $_POST['phone'];
@@ -11,11 +11,11 @@
                 SET firstName = '$firstName',
                     nif = '$nif',
                     phone = '$phone',
-                    lastName = '$lastName'
+                    lastName = '$lastName',
                     email = '$email'
-                WHERE customerId = $customerId";
+                WHERE customerId = $customerId;";
         include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
-       mysqli_query($connect, $sql);
-       mysqli_close($connect);
+        mysqli_query($connect, $sql);
+        mysqli_close($connect);
     }
 ?>

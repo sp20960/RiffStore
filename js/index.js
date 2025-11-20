@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     products.forEach((product) => {
       product.addEventListener('click', (e) => {
-          const productId = product.dataset.productId;
+          const productId = product.parentElement.dataset.productId;
           location.href = `views/product_detail.html?id=${productId}`;
       })
     })
@@ -74,12 +74,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const endpointnUrl = `/student023/shop/backend/endpoints/db_shopping_cart_insert.php?productId=${productId}`
     try {
       const response = fetch(endpointnUrl)
-      const result = response.
-      console.log(result);
+      const result = response
     } catch (error) {
       
     }
   }
+
   function addEventCardBuy() {
      document.querySelectorAll('.card-buy').forEach((btn) => {
       btn.addEventListener('click', () => {

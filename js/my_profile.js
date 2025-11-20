@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(showAddressInfo != null){
         showAddressInfo.forEach((element) => {
             element.addEventListener('click', (e) => {
-                e.target.parentElement.nextElementSibling.classList.toggle('block!');
+                element.nextElementSibling.classList.toggle('block!');
             })
         })
     }

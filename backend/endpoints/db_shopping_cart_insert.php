@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if(isset($_GET['productId']) && $_SESSION['user']) {
+if(isset($_GET['productId']) && isset($_SESSION['user'])) {
     //FETCH ALL THE NECESSARY INFORMATION
     $productId = $_GET['productId'];
     $customerId = $_SESSION['user']['customerId'];

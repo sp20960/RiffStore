@@ -1,12 +1,16 @@
 <?php 
 session_start();
-if ($_SESSION['user']['rol'] == "customer"){
-    header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/customer/my_profile.php') ;
-} else if($_SESSION['user']['rol'] == "admin") {
-    header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/') ;
+if (isset($_SESSION['user'])){
+    if ($_SESSION['user']['rol'] == "customer"){
+        header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/customer/my_profile.php') ;
+    } else if($_SESSION['user']['rol'] == "admin") {
+        header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/') ;
+    }
 }
 
-require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/guest_header.php'); 
+require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/guest_header.php');
+
+
 $errors = [];
 
  if(isset($_POST['submit'])){

@@ -1,35 +1,29 @@
 <?php 
     if (isset($_POST['updateAddress'])){
 
-         //GET DATA
-        $productId = $_POST["address"];
-        $productName = $_POST["additionalData"];
-        $description = $_POST["province"];
-        $brand = $_POST["city"];
-        $cost = $_POST["zipCode"];
-        $pricePerUnit = $_POST["pricePerUnit"];
-        $frets = $_POST["frets"];
-        $color = $_POST["color"];
-        $bodyMaterial = $_POST["bodyMaterial"];
-        $tremolo = $_POST["tremolo"];
-        $categoryId = $_POST["categoryId"];
+        //GET DATA
+        $name = $_POST['name'];
+        $lastName = $_POST['lastName'];
+        $addressId = $_POST["addressId"];
+        $address = $_POST["address"];
+        $additionalData = $_POST["additionalData"];
+        $province = $_POST["province"];
+        $city = $_POST["city"];
+        $zipCode = $_POST["zipCode"];
 
         //START DB CONNECTION
         include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
 
         //DELETE QUERY
-        $sql = "UPDATE 023_products 
-                SET productName = '$productName',
-                `description` = '$description',
-                brand = '$brand',
-                cost = '$cost',
-                pricePerUnit = '$pricePerUnit',
-                frets = $frets,
-                color = '$color',
-                bodyMaterial = '$bodyMaterial',
-                tremolo = $tremolo,
-                categoryId = '$categoryId' 
-                WHERE productId = '$productId'";
+        $sql = "UPDATE 023_addresses 
+                SET `name` = '$name',
+                    lastName = '$lastName',
+                    `address` = '$address',
+                    additionalData = '$additionalData',
+                    zipCode = '$zipCode',
+                    city = '$city',
+                    province = '$province' 
+                WHERE addressId = $addressId; ";
 
         mysqli_query($connect, $sql);
 

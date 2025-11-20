@@ -1,6 +1,7 @@
 <?php
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/admin_header.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/shopping_cart/db_shopping_cart_select.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/security/protect_admin_pages.php');
 ?>
 
 <main class="flex gap-5 bg-[#f5f5dc] p-10 w-full">

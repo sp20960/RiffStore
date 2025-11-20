@@ -1,13 +1,16 @@
 <?php 
     if(isset($_POST['addAddress'])){
+        
+        $name = $_POST['name'];
+        $lastName = $_POST['lastName'];
         $address = $_POST['address'];
         $additionalData = $_POST['additionalData'];
         $province = $_POST['province'];
         $city = $_POST['city'];
         $zipCode = $_POST['zipCode'];
 
-        $sql = "INSERT INTO 023_addresses ( `address`, additionalData, zipCode, city, province)
-                VALUES ('$address', '$additionalData', $zipCode, '$city', '$province')  RETURNING(addressId);";
+        $sql = "INSERT INTO 023_addresses (`name`, lastName, `address`, additionalData, zipCode, city, province)
+                VALUES ('$name', '$lastName', '$address', '$additionalData', $zipCode, '$city', '$province')  RETURNING(addressId);";
         include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
         $result = mysqli_query($connect, $sql);
         $returnedValues = mysqli_fetch_all($result, MYSQLI_ASSOC);

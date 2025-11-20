@@ -3,13 +3,13 @@ $messages = ["update" => ["message" => "Actualizado correctamente", "type" => "s
                 "insert" =>["message" => "Insertado correctamente", "type" => "success"] ,"cart" => ["message" => "Añadido al carrito correctamente", "type" => "success"] ];
 $userAction = "";
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/admin_header.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/security/protect_admin_pages.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/products/db_product_insert.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/products/db_product_update.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/products/db_product_delete.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/shopping_cart/db_shopping_cart_insert_update_content.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/products/db_select_products.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/products_functions.php');
-
 ?>
 
 
