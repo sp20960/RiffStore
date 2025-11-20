@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ).join("");
       addEventProducts();
       addEventAddToCart()
+      addEventCardBuy();
     } else{
       listProducts.innerHTML = "<h1>¡No hay productos disponibles!</h1>";
     }
@@ -79,7 +80,19 @@ document.addEventListener("DOMContentLoaded", () => {
       
     }
   }
+  function addEventCardBuy() {
+     document.querySelectorAll('.card-buy').forEach((btn) => {
+      btn.addEventListener('click', () => {
+          btn.innerHTML = '<i class="fa-solid fa-check"></i>';
 
+          // Después de 1.5 segundos vuelve al estado original
+          setTimeout(() => {
+              btn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i>';
+          }, 1500);
+      })
+    });
+  }
+ 
   // CAROUSEL FUNCTIONALITY
   function nextImage() {
     let actualIndex;

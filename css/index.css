@@ -16,6 +16,9 @@ main h2 {
   grid-column: span 2;
 }
 
+.fa-check {
+  color: rgb(1, 59, 1);
+}
 .carousel {
   box-shadow: 10px 10px 10px rgba(155, 91, 91, 0.733);
   padding-top: 10px;
@@ -125,6 +128,7 @@ main section:nth-child(4) {
 }
 
 .container-more {
+  padding: 40px 0 20px 0;
   display: flex;
   justify-content: center;
   grid-column: span 2;
@@ -137,6 +141,7 @@ main section:nth-child(4) {
   padding: 5px 20px;
   align-self: end; /* Lo coloca abajo */
   justify-self: center;
+   cursor: pointer;
 }
 
 @media (min-width: 577px) and (max-width: 1024px) {

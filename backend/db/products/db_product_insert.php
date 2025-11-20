@@ -16,7 +16,7 @@
         $categoryId = $_POST["categoryId"];
 
         //FILE CHECKS AND TREATMENT
-        $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/student023/shop/assets/images/products/".strtolower(str_replace("", "_", $productName));
+        $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/student023/shop/assets/images/products/".strtolower(str_replace(" ", "_", $productName));
         $target_file = $target_dir .'/'. basename($_FILES["productImage"]["name"]);
         $isSuccessful = true;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -56,7 +56,7 @@
                 $messages['insert']["type"] = "error";
             } 
 
-            $imagePath = "/student023/shop/assets/images/products/".strtolower(str_replace("", "_", $productName)).'/' .basename($_FILES["productImage"]["name"]);
+            $imagePath = "/student023/shop/assets/images/products/".strtolower(str_replace(" ", "_", $productName)).'/' .basename($_FILES["productImage"]["name"]);
             include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
             $sql = "INSERT INTO 023_products (productName, `description`, cost, pricePerUnit, brand, frets, color, bodyMaterial, tremolo, categoryId, imagePath)
             VALUES ('$productName', '$description', $cost, $pricePerUnit, '$brand', $frets, '$color', '$bodyMaterial', $tremolo, $categoryId, '$imagePath' )";
