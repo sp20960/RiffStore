@@ -29,4 +29,5 @@ if(isset($_GET['productId']) && isset($_SESSION['user'])) {
     //CLOSE DB CONNECTION
     mysqli_close($connect);
 }
+
 ?>

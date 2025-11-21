@@ -12,13 +12,14 @@ $userData = returnCustomerData($_SESSION['user']['customerId']);
     <section class="flex w-full gap-5 justify-center">
         <section class="bg-primary/90 w-140 flex flex-col pt-5 py-10 gap-5 items-center shadow-2xl rounded-2xl hover:scale-101 transition-all">
             <h2 class="text-center text-text font-latobold text-2xl"><?= strtoupper($userData[0]['firstName'] . ' ' . $userData[0]['lastName']) ?></h2>
-            <form action="">
-                <label for="upload-image">
+            <form action="my_profile.php" method="POST" class="flex flex-col items-center gap-5" enctype="multipart/form-data">
+                <label for="input-profile-image">
                     <div class="rounded-full">
-                        <img src="<?= $userData[0]['imagePath'] ?>" width="300" alt="" class="cursor-pointer hover:opacity-40 transition-all">
+                        <img id="profile-image" src="<?= $userData[0]['imagePath'] ?>" width="300" alt="" class="cursor-pointer hover:opacity-40 transition-all rounded-full">
                     </div>
                 </label>
-                <input type="file" id="upload-image" class="hidden">
+                <input type="file" id="input-profile-image" name="customerProfileImage" class="hidden">
+                <button class="bg-btn text-text font-latobold px-10 py-2 cursor-pointer hover:opacity-60 rounded-sm hidden" id="btn-save-profile-image" name="updateProfileImage" type="submit">Save</button>
             </form>
         </section>
 
@@ -122,7 +123,7 @@ $userData = returnCustomerData($_SESSION['user']['customerId']);
         </section>
     </section>
 
-    <div id="container-add-address" class="absolute hidden w-150 bg-primary/99 top-50 right-100 z-30000 flex-col p-5 gap-10 rounded">
+    <section id="container-add-address" class="absolute hidden w-150 bg-primary/99 top-50 right-100 z-30000 flex-col p-5 gap-10 rounded">
         <div class="flex justify-between items-center">
             <h3 class="text-text font-latobold text-xl">Add address</h3>
             <i id="close-add-address" class="fa-regular fa-x fa-xl text-text! cursor-pointer"></i>
@@ -142,7 +143,7 @@ $userData = returnCustomerData($_SESSION['user']['customerId']);
             </div>
 
             <div class="flex gap-5">
-                <select name="province" class="bg-white rounded p-2">
+                <select name="province" class="bg-text rounded p-2">
                     <option value="Andalucia">Andalucia</option>
                     <option value="Aragon">Aragon</option>
                     <option value="Asturias">Asturias</option>
@@ -170,7 +171,7 @@ $userData = returnCustomerData($_SESSION['user']['customerId']);
                 <button name="addAddress" class="bg-btn text-text font-latobold px-10 py-2 cursor-pointer hover:opacity-60 rounded-sm" type="submit">Save</button>
             </div>
         </form>
-    </div>
+    </section>
 
     <script src="/student023/shop/js/my_profile.js"></script>
 </main>

@@ -1,14 +1,13 @@
 <?php 
     session_start();
-    if (isset($_GET['productId']) && isset($_GET['quantity'])){
-        $quantity = $_GET['quantity'];
-        $productId = $_GET['productId'];
+    if (isset($_POST['productId']) && isset($_POST['quantity'])){
+        $quantity = $_POST['quantity'];
+        $productId = $_POST['productId'];
         $customerId = $_SESSION['user']['customerId'];
 
         $sql = "UPDATE `023_shopping_carts` 
                 SET quantity = $quantity 
                 WHERE productId = $productId AND customerId = $customerId;";
-
         require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/config/db_connect.php');
         $result = mysqli_query($connect, $sql);
         
