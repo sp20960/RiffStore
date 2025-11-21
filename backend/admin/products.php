@@ -1,7 +1,7 @@
 <?php
 $messages = ["update" => ["message" => "Actualizado correctamente", "type" => "success"], "delete" => ["message" => "Eliminado correctamente", "type" => "success"], 
                 "insert" =>["message" => "Insertado correctamente", "type" => "success"] ,"cart" => ["message" => "Añadido al carrito correctamente", "type" => "success"] ];
-$userAction = "";
+$userAction;
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/admin_header.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/security/protect_admin_pages.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/products/db_product_insert.php');
@@ -15,7 +15,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/products_
 
 <main class="flex flex-col gap-5 bg-[#f5f5dc] p-10 w-full">
     <div class="absolute top-1 left-[50%] w-[calc(100vw-360px)]">
-        <?php if($_SERVER['REQUEST_METHOD'] === "POST"){ ?>
+        <?php if($_SERVER['REQUEST_METHOD'] === "POST" && !empty($userAction)){ ?>
             <div class="bg-primary w-80 flex justify-center items-center py-5 rounded-md gap-2">
            
                 <i class="fa-regular <?= $messages[$userAction]["type"] == "success" ? "fa-check text-green-600" : "fa-x text-red-600" ?>"></i>

@@ -1,7 +1,7 @@
 <?php
-    if (isset($_POST['insert']) && $_SESSION['insert'] == true)  {
+    if (isset($_POST['insert']) && isset($_SESSION['insert']))  {
         $userAction = "insert";
-        unset($_SESSION['delete']);
+        unset($_SESSION['insert']);
        
         //GET DATA
         $productName = $_POST["productName"];
