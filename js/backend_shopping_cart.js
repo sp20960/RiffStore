@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const urlShoppingCartUpdateEndpoint = "/student023/shop/backend/endpoints/db_shopping_cart_update"
+    const urlShoppingCartUpdateEndpoint = "/student023/shop/backend/endpoints/db_shopping_cart_update.php"
     const minusIcons = document.querySelectorAll('#minus-icon');
     const plusIcon = document.querySelectorAll('#plus-icon');
 

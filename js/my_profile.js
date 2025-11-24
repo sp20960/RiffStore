@@ -1,10 +1,105 @@
+async function checkSession() {
+    try {
+        const response = await fetch("/student023/shop/backend/endpoints/check_session.php");
+        const result = await response.text();
+        if(result === "false") {
+            location.href="../backend/login.php"
+        }
+    } catch (error) {
+        
+    }
+}
+
+checkSession();
+
 document.addEventListener('DOMContentLoaded', () => {
     const btnNoAddress = document.getElementById("button-no-address");
+    const urlEndpoint = "/student023/shop/backend/endpoints/db_select_info_customer.php"
     const containerAddAddress = document.getElementById('container-add-address');
     const closeAddAddress = document.getElementById('close-add-address');
     const showAddressInfo = document.querySelectorAll('#show-address-info') || null
     const inputProfileImage = document.getElementById('input-profile-image');
     const profileImage = document.getElementById('profile-image');
+
+    async function getCustomerInfo() {
+        try {
+          const response = await fetch(urlEndpoint);
+          const result = await response.json();  
+          showUserInfo(result.userInfo[0]);
+          result.addresses.forEach((address) => {
+            showAddresses(address)
+          });
+          
+        } catch (error) {
+            
+        }
+    }
+
+    function showUserInfo(userInfo) {
+        let fullName = userInfo.firstName + " " + userInfo.lastName
+        document.getElementById('full-name').textContent = fullName.toUpperCase() || "";
+        document.getElementById('first-name').value = fullName || "";
+        document.getElementById('last-name').value = userInfo.lastName || ""; 
+        document.getElementById('nif').value = userInfo.nif || "";
+        document.getElementById('phone').value = userInfo.phone || "";
+        document.getElementById('email').value = userInfo.email;
+    }
+
+    function showAddresses(address){
+        document.getElementById('start-addresses').insertAdjacentHTML("afterend", 
+               ' <div>
+                        <div class="flex items-center" id="show-address-info">
+                            <h1 class="text-text text-xl underline cursor-pointer">Address <?= $i ?></h1><i class="fa-regular fa-caret-down icon"></i>
+                        </div>
+                        <div class="pt-5 hidden">
+                            <form action="my_profile.php" method="POST" class="flex flex-col gap-10">
+                                <input type="hidden" name="addressId" value="<?= $addresses[$i]['addressId'] ?>">
+                                <div class="flex gap-5">
+                                    <input type="text" id="name" name="name" placeholder="Name*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-[50%]" value="<?= $addresses[$i]['name'] ?>" required>
+                                    <input type="test" id="lastName" name="lastName" placeholder="Last name*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-[50%]" value="<?= $addresses[$i]['lastName'] ?>" required>
+                                </div>
+                                <div class="flex flex-col">
+                                    <input type="text" id="address" name="address" placeholder="Address and number *" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular" value="<?= $addresses[$i]['address'] ?>" required>
+                                </div>
+
+                                <div class="flex flex-col">
+                                    <input type="text" id="additional-data" name="additionalData" placeholder="Additional data" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular" value="<?= $addresses[$i]['additionalData'] ?>">
+                                </div>
+
+                                <div class="flex gap-5">
+                                    <select name="province" class="bg-text rounded p-2">
+                                        <option value="Andalucia">Andalucia</option>
+                                        <option value="Aragon" <?= ($addresses[$i]['province'] == 'Aragon') ? 'selected' : '' ?>>Aragon</option>
+                                        <option value="Asturias" <?= ($addresses[$i]['province'] == 'Asturias') ? 'selected' : '' ?>>Asturias</option>
+                                        <option value="Baleares" <?= ($addresses[$i]['province'] == 'Baleares') ? 'selected' : '' ?>>Baleares</option>
+                                        <option value="Ceuta" <?= ($addresses[$i]['province'] == 'Ceuta') ? 'selected' : '' ?>>Ceuta</option>
+                                        <option value="Canarias" <?= ($addresses[$i]['province'] == 'Canarias') ? 'selected' : '' ?>>Canarias</option>
+                                        <option value="Cantabria" <?= ($addresses[$i]['province'] == 'Cantabria') ? 'selected' : '' ?>>Cantabria</option>
+                                        <option value="Castilla-La Mancha" <?= ($addresses[$i]['province'] == 'Castilla-La Mancha') ? 'selected' : '' ?>>Castilla-La Mancha</option>
+                                        <option value="Castilla y Leon" <?= ($addresses[$i]['province'] == 'Castilla y Leon') ? 'selected' : '' ?>>Castilla y Leon</option>
+                                        <option value="Cataluna" <?= ($addresses[$i]['province'] == 'Cataluna') ? 'selected' : '' ?>>Cataluna</option>
+                                        <option value="Comunidad Valenciana" <?= ($addresses[$i]['province'] == 'Comunidad Valenciana') ? 'selected' : '' ?>>Comunidad Valenciana</option>
+                                        <option value="Extremadura" <?= ($addresses[$i]['province'] == 'Extremadura') ? 'selected' : '' ?>>Extremadura</option>
+                                        <option value="Galicia" <?= ($addresses[$i]['province'] == 'Galicia') ? 'selected' : '' ?>>Galicia</option>
+                                        <option value="La Rioja" <?= ($addresses[$i]['province'] == 'La Rioja') ? 'selected' : '' ?>>La Rioja</option>
+                                        <option value="Madrid" <?= ($addresses[$i]['province'] == 'Madrid') ? 'selected' : '' ?>>Madrid</option>
+                                        <option value="Melilla" <?= ($addresses[$i]['province'] == 'Melilla') ? 'selected' : '' ?>>Melilla</option>
+                                        <option value="Murcia" <?= ($addresses[$i]['province'] == 'Murcia') ? 'selected' : '' ?>>Murcia</option>
+                                        <option value="Navarra" <?= ($addresses[$i]['province'] == 'Navarra') ? 'selected' : '' ?>>Navarra</option>
+                                        <option value="Pais Vasco" <?= ($addresses[$i]['province'] == 'Pais Vasco') ? 'selected' : '' ?>>Pais Vasco</option>
+                                    </select>
+                                    <input type="text" id="city" name="city" placeholder="City*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-50" value="<?= $addresses[$i]['city'] ?>" required>
+                                    <input type="number" id="zip-code" name="zipCode" placeholder="ZIP code*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-30" minlength="5" maxlength="5" value="<?= $addresses[$i]['zipCode'] ?>" required>
+                                </div>
+                                <div class="flex justify-center">
+                                    <button name="updateAddress" class="bg-btn text-text font-latobold px-10 py-2 cursor-pointer hover:opacity-60 rounded-sm" type="submit">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            '
+        ) ;
+    }
 
     btnNoAddress.addEventListener('click', () => {
         containerAddAddress.classList.add('flex!')
@@ -38,4 +133,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     });
+    getCustomerInfo();
 });

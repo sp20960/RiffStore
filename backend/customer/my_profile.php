@@ -23,7 +23,7 @@ $userData = returnCustomerData($_SESSION['user']['customerId']);
             </form>
         </section>
 
-        <section class="col-start-2 col-end-4 row-start-1 w-220 bg-primary/90 shadow-2xl rounded-2xl flex flex-col hover:scale-101 transition-all p-5">
+        <section class="w-220 bg-primary/90 shadow-2xl rounded-2xl flex flex-col hover:scale-101 transition-all p-5">
             <h3 class="text-text text-2xl font-latobold">Account Details</h3>
             <form id="form-update-customer-info" action="my_profile.php" method="POST" class="flex gap-10 py-7 px-10">
                 <div class="flex flex-col gap-5 w-80">
