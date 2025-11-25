@@ -150,7 +150,7 @@ main section:nth-child(4) {
   }
 
   .card {
-    height: 320px;
+    min-height: 320px;
   }
 
   .container-more {
@@ -164,7 +164,7 @@ main section:nth-child(4) {
   }
 
   .card {
-    height: 320px;
+    min-height: 320px;
     gap: 15px;
   }
 

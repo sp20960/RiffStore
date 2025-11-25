@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlEndpoint = "/student023/shop/backend/endpoints/db_select_info_customer.php"
     const containerAddAddress = document.getElementById('container-add-address');
     const closeAddAddress = document.getElementById('close-add-address');
-    const showAddressInfo = document.querySelectorAll('#show-address-info') || null
     const inputProfileImage = document.getElementById('input-profile-image');
     const profileImage = document.getElementById('profile-image');
 
@@ -29,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
           result.addresses.forEach((address) => {
             showAddresses(address)
           });
+          eventsAddresses();
           
         } catch (error) {
             
@@ -47,49 +47,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showAddresses(address){
         document.getElementById('start-addresses').insertAdjacentHTML("afterend", 
-               ' <div>
+               `<div>
                         <div class="flex items-center" id="show-address-info">
-                            <h1 class="text-text text-xl underline cursor-pointer">Address <?= $i ?></h1><i class="fa-regular fa-caret-down icon"></i>
+                            <h1 class="text-text text-xl underline cursor-pointer">Address</h1><i class="fa-solid fa-caret-down icon"></i>
                         </div>
                         <div class="pt-5 hidden">
                             <form action="my_profile.php" method="POST" class="flex flex-col gap-10">
-                                <input type="hidden" name="addressId" value="<?= $addresses[$i]['addressId'] ?>">
+                                <input type="hidden" name="addressId" value="${address.addressId}">
                                 <div class="flex gap-5">
-                                    <input type="text" id="name" name="name" placeholder="Name*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-[50%]" value="<?= $addresses[$i]['name'] ?>" required>
-                                    <input type="test" id="lastName" name="lastName" placeholder="Last name*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-[50%]" value="<?= $addresses[$i]['lastName'] ?>" required>
+                                    <input type="text" id="name" name="name" placeholder="Name*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-[50%]" value="${address.name}" required>
+                                    <input type="test" id="lastName" name="lastName" placeholder="Last name*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-[50%]" value="${address.lastName}" required>
                                 </div>
                                 <div class="flex flex-col">
-                                    <input type="text" id="address" name="address" placeholder="Address and number *" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular" value="<?= $addresses[$i]['address'] ?>" required>
+                                    <input type="text" id="address" name="address" placeholder="Address and number *" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular" value="${address.address}" required>
                                 </div>
 
                                 <div class="flex flex-col">
-                                    <input type="text" id="additional-data" name="additionalData" placeholder="Additional data" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular" value="<?= $addresses[$i]['additionalData'] ?>">
+                                    <input type="text" id="additional-data" name="additionalData" placeholder="Additional data" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular" value="${address.additionalData}">
                                 </div>
 
-                                <div class="flex gap-5">
+                                <div class="flex flex-col gap-5 lg:flex-row">
                                     <select name="province" class="bg-text rounded p-2">
-                                        <option value="Andalucia">Andalucia</option>
-                                        <option value="Aragon" <?= ($addresses[$i]['province'] == 'Aragon') ? 'selected' : '' ?>>Aragon</option>
-                                        <option value="Asturias" <?= ($addresses[$i]['province'] == 'Asturias') ? 'selected' : '' ?>>Asturias</option>
-                                        <option value="Baleares" <?= ($addresses[$i]['province'] == 'Baleares') ? 'selected' : '' ?>>Baleares</option>
-                                        <option value="Ceuta" <?= ($addresses[$i]['province'] == 'Ceuta') ? 'selected' : '' ?>>Ceuta</option>
-                                        <option value="Canarias" <?= ($addresses[$i]['province'] == 'Canarias') ? 'selected' : '' ?>>Canarias</option>
-                                        <option value="Cantabria" <?= ($addresses[$i]['province'] == 'Cantabria') ? 'selected' : '' ?>>Cantabria</option>
-                                        <option value="Castilla-La Mancha" <?= ($addresses[$i]['province'] == 'Castilla-La Mancha') ? 'selected' : '' ?>>Castilla-La Mancha</option>
-                                        <option value="Castilla y Leon" <?= ($addresses[$i]['province'] == 'Castilla y Leon') ? 'selected' : '' ?>>Castilla y Leon</option>
-                                        <option value="Cataluna" <?= ($addresses[$i]['province'] == 'Cataluna') ? 'selected' : '' ?>>Cataluna</option>
-                                        <option value="Comunidad Valenciana" <?= ($addresses[$i]['province'] == 'Comunidad Valenciana') ? 'selected' : '' ?>>Comunidad Valenciana</option>
-                                        <option value="Extremadura" <?= ($addresses[$i]['province'] == 'Extremadura') ? 'selected' : '' ?>>Extremadura</option>
-                                        <option value="Galicia" <?= ($addresses[$i]['province'] == 'Galicia') ? 'selected' : '' ?>>Galicia</option>
-                                        <option value="La Rioja" <?= ($addresses[$i]['province'] == 'La Rioja') ? 'selected' : '' ?>>La Rioja</option>
-                                        <option value="Madrid" <?= ($addresses[$i]['province'] == 'Madrid') ? 'selected' : '' ?>>Madrid</option>
-                                        <option value="Melilla" <?= ($addresses[$i]['province'] == 'Melilla') ? 'selected' : '' ?>>Melilla</option>
-                                        <option value="Murcia" <?= ($addresses[$i]['province'] == 'Murcia') ? 'selected' : '' ?>>Murcia</option>
-                                        <option value="Navarra" <?= ($addresses[$i]['province'] == 'Navarra') ? 'selected' : '' ?>>Navarra</option>
-                                        <option value="Pais Vasco" <?= ($addresses[$i]['province'] == 'Pais Vasco') ? 'selected' : '' ?>>Pais Vasco</option>
+                                        <option value="Andalucia" ${address.province === "Andalucia" ? "selected" : ""}>Andalucia</option>
+                                        <option value="Aragon" ${address.province === "Aragon" ? "selected" : ""}>Aragon</option>
+                                        <option value="Asturias" ${address.province === "Asturias" ? "selected" : ""}>Asturias</option>
+                                        <option value="Baleares" ${address.province === "Baleares" ? "selected" : ""}>Baleares</option>
+                                        <option value="Ceuta" ${address.province === "Ceuta" ? "selected" : ""}>Ceuta</option>
+                                        <option value="Canarias" ${address.province === "Canarias" ? "selected" : ""}>Canarias</option>
+                                        <option value="Cantabria" ${address.province === "Cantabria" ? "selected" : ""}>Cantabria</option>
+                                        <option value="Castilla-La Mancha" ${address.province === "Castilla-La Mancha" ? "selected" : ""}>Castilla-La Mancha</option>
+                                        <option value="Castilla y Leon" ${address.province === "Castilla y Leon" ? "selected" : ""}>Castilla y Leon</option>
+                                        <option value="Cataluna" ${address.province === "Catalunya" ? "selected" : ""}>Cataluna</option>
+                                        <option value="Comunidad Valenciana" ${address.province === "Comunidad Valenciana" ? "selected" : ""}>Comunidad Valenciana</option>
+                                        <option value="Extremadura" ${address.province === "Extremadura" ? "selected" : ""}>Extremadura</option>
+                                        <option value="Galicia" ${address.province === "Galicia" ? "selected" : ""}>Galicia</option>
+                                        <option value="La Rioja" ${address.province === "La Rioja" ? "selected" : ""}>La Rioja</option>
+                                        <option value="Madrid" ${address.province === "Madrid" ? "selected" : ""}>Madrid</option>
+                                        <option value="Melilla" ${address.province === "Melilla" ? "selected" : ""}>Melilla</option>
+                                        <option value="Murcia" ${address.province === "Murcia" ? "selected" : ""}>Murcia</option>
+                                        <option value="Navarra" ${address.province === "Navarra" ? "selected" : ""}>Navarra</option>
+                                        <option value="Pais Vasco" ${address.province === "Pais Vasco" ? "selected" : ""}>Pais Vasco</option>
                                     </select>
-                                    <input type="text" id="city" name="city" placeholder="City*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-50" value="<?= $addresses[$i]['city'] ?>" required>
-                                    <input type="number" id="zip-code" name="zipCode" placeholder="ZIP code*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-30" minlength="5" maxlength="5" value="<?= $addresses[$i]['zipCode'] ?>" required>
+                                    <input type="text" id="city" name="city" placeholder="City*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-50" value="${address.city}" required>
+                                    <input type="number" id="zip-code" name="zipCode" placeholder="ZIP code*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-30" minlength="5" maxlength="5" value="${address.zipCode}" required>
                                 </div>
                                 <div class="flex justify-center">
                                     <button name="updateAddress" class="bg-btn text-text font-latobold px-10 py-2 cursor-pointer hover:opacity-60 rounded-sm" type="submit">Save</button>
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             </form>
                         </div>
                     </div>
-            '
+            `
         ) ;
     }
 
@@ -109,13 +109,18 @@ document.addEventListener('DOMContentLoaded', () => {
         containerAddAddress.classList.remove('flex!')
     })
 
-    if(showAddressInfo != null){
-        showAddressInfo.forEach((element) => {
-            element.addEventListener('click', (e) => {
-                element.nextElementSibling.classList.toggle('block!');
+    function eventsAddresses(){
+        const showAddressInfo = document.querySelectorAll('#show-address-info') || null
+        console.log(showAddressInfo);
+        if(showAddressInfo != null){
+            showAddressInfo.forEach((element) => {
+                element.addEventListener('click', () => {
+                    element.nextElementSibling.classList.toggle('block!');
+                })
             })
-        })
+        }
     }
+    
 
     inputProfileImage.addEventListener('change', (e) => {
         const file = e.target.files[0];
