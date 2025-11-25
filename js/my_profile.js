@@ -111,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function eventsAddresses(){
         const showAddressInfo = document.querySelectorAll('#show-address-info') || null
-        console.log(showAddressInfo);
         if(showAddressInfo != null){
             showAddressInfo.forEach((element) => {
                 element.addEventListener('click', () => {
