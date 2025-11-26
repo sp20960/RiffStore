@@ -1,6 +1,6 @@
 <?php 
+    session_start();
  if(isset($_POST['updateCustomer'])){
-        $_SESSION['user']['formAction'] =  true;
         $customerId = $_SESSION['user']['customerId'];
         $firstName = $_POST['firstName'];
         $nif = $_POST['nif'];
@@ -21,7 +21,6 @@
     }
 
     if (isset($_POST['updateProfileImage'])){
-        $_SESSION['user']['formAction'] =  true;
 
         $customerId = $_SESSION['user']['customerId'];
         $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/student023/shop/assets/images/customers/".(string) $customerId;
@@ -88,4 +87,6 @@
             mysqli_close($connect);  
         }   
     }
+    header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/views/profile.html');
+
 ?>

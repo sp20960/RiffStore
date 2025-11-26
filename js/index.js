@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevArrow = document.querySelector(".prev");
   const images = document.querySelectorAll(".carousel img");
   const listProducts = document.getElementById('list-products');
+  let shoppingCartProducts = JSON.parse(localStorage.getItem('products')) || {products:[]}
+
 
   async function loadProducts() {
     try {
@@ -14,6 +16,37 @@ document.addEventListener("DOMContentLoaded", () => {
       listProducts.innerHTML = "<h1>¡Ha habido un problema cargando los productos!</h1>";
     }
   }
+
+  async function checkSession() {
+    try {
+        const response = await fetch("/student023/shop/backend/endpoints/check_session.php");
+        const result = await response.text();
+        if(result === "false") {
+          return false;
+        }
+        return true;
+    } catch (error) {
+        
+    }
+  }
+
+  function addProductLocalStorage(productId) {
+      let productExists = false;
+
+      shoppingCartProducts.products.forEach((product) => {
+        if(product.productId === productId){
+          let quantity = +product.qty;
+          product.qty = quantity + 1;
+          productExists = true;
+        }
+      });
+
+      if(!productExists){
+        shoppingCartProducts.products.push({productId, qty: 1});
+      }
+      localStorage.setItem("products", JSON.stringify(shoppingCartProducts));
+  }
+
 
   function showProducts(products) {
     if(products != null && products.length != 0){
@@ -63,9 +96,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const buttons = document.querySelectorAll('.card-buy');
     
     buttons.forEach((button) => {
-      button.addEventListener('click', (e) => {
+      button.addEventListener('click', async (e) => {
         const productId = e.target.parentElement.dataset.productId;
-        addToShoppingCart(productId);
+        const session =  await checkSession();
+        if(session){
+          addToShoppingCart(productId);
+        } else {
+          addProductLocalStorage(productId);
+        }
+        
       })
     })
   }

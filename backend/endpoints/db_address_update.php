@@ -1,6 +1,6 @@
 <?php 
     if (isset($_POST['updateAddress'])){
-        $_SESSION['user']['formAction'] =  true;
+
         //GET DATA
         $name = $_POST['name'];
         $lastName = $_POST['lastName'];
@@ -31,8 +31,7 @@
         mysqli_close($connect);   
     }
 
-     if (isset($_POST['deleteAddress'])){
-        $_SESSION['user']['formAction'] =  true;
+    if (isset($_POST['deleteAddress'])){
 
         //GET DATA
         $addressId = $_POST["addressId"];
@@ -54,5 +53,6 @@
         //CLOSE DB CONEXION
         mysqli_close($connect);   
     }
+    header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/views/profile.html');
 
 ?>

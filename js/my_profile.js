@@ -38,11 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function showUserInfo(userInfo) {
         let fullName = userInfo.firstName + " " + userInfo.lastName
         document.getElementById('full-name').textContent = fullName.toUpperCase() || "";
-        document.getElementById('first-name').value = fullName || "";
+        document.getElementById('first-name').value = userInfo.firstName || "";
         document.getElementById('last-name').value = userInfo.lastName || ""; 
         document.getElementById('nif').value = userInfo.nif || "";
         document.getElementById('phone').value = userInfo.phone || "";
         document.getElementById('email').value = userInfo.email;
+        profileImage.src = userInfo.imagePath;
     }
 
     function showAddresses(address){
@@ -52,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <h1 class="text-text text-xl underline cursor-pointer">Address</h1><i class="fa-solid fa-caret-down icon"></i>
                         </div>
                         <div class="pt-5 hidden">
-                            <form action="my_profile.php" method="POST" class="flex flex-col gap-10">
+                            <form action="../backend/endpoints/db_address_update.php" method="POST" class="flex flex-col gap-10">
                                 <input type="hidden" name="addressId" value="${address.addressId}">
                                 <div class="flex gap-5">
                                     <input type="text" id="name" name="name" placeholder="Name*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-[50%]" value="${address.name}" required>
@@ -91,8 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
                                     <input type="text" id="city" name="city" placeholder="City*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-50" value="${address.city}" required>
                                     <input type="number" id="zip-code" name="zipCode" placeholder="ZIP code*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-30" minlength="5" maxlength="5" value="${address.zipCode}" required>
                                 </div>
-                                <div class="flex justify-center">
-                                    <button name="updateAddress" class="bg-btn text-text font-latobold px-10 py-2 cursor-pointer hover:opacity-60 rounded-sm" type="submit">Save</button>
+                                <div class="flex justify-center gap-5">
+                                    <button name="deleteAddress" class="bg-red-600 text-text font-latobold px-10 py-2 cursor-pointer hover:opacity-60 rounded-sm" type="submit">Eliminar</button>
+                                    <button name="updateAddress" class="bg-btn text-text font-latobold px-10 py-2 cursor-pointer hover:opacity-60 rounded-sm" type="submit">Guardar</button>
                                 </div>
                             </form>
                         </div>

@@ -1,6 +1,7 @@
 <?php 
+    session_start();
     if(isset($_POST['addAddress'])){
-        $_SESSION['user']['formAction'] =  true;
+        
         $name = $_POST['name'];
         $lastName = $_POST['lastName'];
         $address = $_POST['address'];
@@ -22,4 +23,6 @@
         mysqli_query($connect, $sql);
         mysqli_close($connect);
     }
+    header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/views/profile.html');
+
 ?>
