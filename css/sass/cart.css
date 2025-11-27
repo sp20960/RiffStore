@@ -1,0 +1,97 @@
+@font-face {
+  font-family: LatoRegular;
+  src: url("/student023/shop/assets/fonts/Lato-Regular.ttf");
+}
+@font-face {
+  font-family: LatoBold;
+  src: url("/student023/shop/assets/fonts/Lato-Bold.ttf");
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+header {
+  background-color: #2b2b2b;
+  padding: 20px;
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 1000;
+}
+@media (min-width: 810px) and (max-width: 1090px) {
+  header {
+    justify-content: space-evenly;
+  }
+}
+header > i {
+  color: #f0f0f0;
+  cursor: pointer;
+}
+header img {
+  width: 32px;
+  cursor: pointer;
+}
+header nav {
+  background-color: #2b2b2b;
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  padding: 40px 20px;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1000;
+  color: text;
+}
+header nav > div {
+  display: flex;
+  justify-content: end;
+}
+header nav > div i {
+  color: #f0f0f0;
+  cursor: pointer;
+}
+header nav a {
+  color: #f0f0f0;
+  font-size: 2rem;
+  font-family: LatoBold, "sans-serif";
+  cursor: pointer;
+}
+header nav p {
+  color: #f0f0f0;
+  font-size: 2rem;
+  cursor: pointer;
+  font-family: LatoBold, "sans-serif";
+}
+header nav #dropdown-content {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 25px;
+}
+header form {
+  position: relative;
+}
+header form input {
+  border-radius: 6px;
+  height: 36px;
+  width: 176px;
+  border: none;
+  background-color: white;
+}
+header form i {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(50%);
+}
+header a {
+  color: #f0f0f0;
+}/*# sourceMappingURL=cart.css.map */
