@@ -95,7 +95,7 @@
 
         <p class="mt-10 text-center text-sm/6 text-gray-400">
           Ya tienes cuenta?
-          <a href="register.php" class="font-semibold text-text underline hover:opacity-40">Iniciar sesión</a>
+          <a href="login.php" class="font-semibold text-text underline hover:opacity-40">Iniciar sesión</a>
         </p>
       </div>
     </div>

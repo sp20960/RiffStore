@@ -151,6 +151,8 @@ if (isset($_SESSION['user'])) {
       </div>
     </div>
   </main>
+
+  <script src="/student023/shop/js/common.js"></script>
 </body>
 
 </html>

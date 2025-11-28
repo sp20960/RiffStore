@@ -2,6 +2,7 @@
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/admin_header.php');
 
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/shopping_cart/db_shopping_cart_select.php');
+$_SESSION['user']['insertOrder'] = true;
 ?>
 
 <main class="flex gap-5 bg-[#f5f5dc] p-10 w-full">
@@ -37,8 +38,13 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/shopping_cart/d
                     <h3 class="text-text text-2xl font-bold text-center">Total: <span id="total-price"><?= htmlspecialchars($totalPrice)?></span>€</h3>
                     <p class="text-text">Todos los precios incluyen <span class="font-bold">IVA</span></p>
                 </div>
-                <div>
-                    <button class="bg-btn rounded-md py-3 px-10 font-bold text-text cursor-pointer">IR A CAJA<i class="fa-regular fa-arrow-right"></i></button> 
+                <?php if(isset($products[0]['productId'])):?>
+                  <form action="../checkout/tpv.php" method="POST">
+                    <button type="submit" name="submit" class="bg-btn rounded-md py-3 px-10 font-bold text-text cursor-pointer">IR A CAJA<i class="fa-regular fa-arrow-right"></i></button> 
+                  </form>
+                <?php else: ?>
+                  <button class="bg-btn rounded-md py-3 px-10 font-bold text-text cursor-pointer">IR A CAJA<i class="fa-regular fa-arrow-right"></i></button> 
+                <?php endif ?>    
                 </div>
             </div>
         </div>

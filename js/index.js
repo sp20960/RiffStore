@@ -30,24 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function addProductLocalStorage(productId) {
-      let productExists = false;
-
-      shoppingCartProducts.products.forEach((product) => {
-        if(product.productId === productId){
-          let quantity = +product.qty;
-          product.qty = quantity + 1;
-          productExists = true;
-        }
-      });
-
-      if(!productExists){
-        shoppingCartProducts.products.push({productId, qty: 1});
-      }
-      localStorage.setItem("products", JSON.stringify(shoppingCartProducts));
-  }
-
-
   function showProducts(products) {
     if(products != null && products.length != 0){
       listProducts.innerHTML = products
@@ -112,11 +94,27 @@ document.addEventListener("DOMContentLoaded", () => {
   async function addToShoppingCart(productId) {
     const endpointnUrl = `/student023/shop/backend/endpoints/db_shopping_cart_insert.php?productId=${productId}`
     try {
-      const response = fetch(endpointnUrl)
-      const result = response
+      const response = fetch(endpointnUrl);
     } catch (error) {
       
     }
+  }
+
+  function addProductLocalStorage(productId) {
+      let productExists = false;
+
+      shoppingCartProducts.products.forEach((product) => {
+        if(product.productId === productId){
+          let quantity = +product.qty;
+          product.qty = quantity + 1;
+          productExists = true;
+        }
+      });
+
+      if(!productExists){
+        shoppingCartProducts.products.push({productId, qty: 1});
+      }
+      localStorage.setItem("products", JSON.stringify(shoppingCartProducts));
   }
 
   function addEventCardBuy() {
@@ -124,7 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.addEventListener('click', () => {
           btn.innerHTML = '<i class="fa-solid fa-check"></i>';
 
-          // Después de 1.5 segundos vuelve al estado original
           setTimeout(() => {
               btn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i>';
           }, 1500);
