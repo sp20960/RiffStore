@@ -1,63 +1,6 @@
-<?php
-session_start();
-
-$errors = [];
-
-if (isset($_POST['submit'])) {
-  // INITIALIZE SESSION
-  session_regenerate_id();
-
-  // FETCH POST INFORMATION
-  $email = $_POST['email'];
-  $pwd = $_POST['pwd'];
-
-  if (empty($pwd)) {
-    $errors['pwd'] = "Este campo es obligatorio!";
-  }
-
-  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors['email'] = "Email incorrecto!";
-  }
-
-  if (empty($email)) {
-    $errors['email'] = "Este campo es obligatorio!";
-  }
-
-  if (!array_filter($errors)) {
-    // CREATE QUERY
-
-    $sql = "SELECT * FROM `023_customers` WHERE email = '$email' AND pwd = '$pwd';";
-
-    // OPEN CONNECTION
-    require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/config/db_connect.php');
-
-    // EXECUTE QUERY AND SAVE RESULT
-    $result = mysqli_query($connect, $sql);
-
-    $user = mysqli_fetch_assoc($result);
-    // CHECK IF CUSTOMER EXISTS
-    if ($user) {
-      $_SESSION['user'] = $user;
-      // REDIRECT USER TO THE ADMINISTRATOR PANEL
-      header("Location: http://" . $_SERVER['SERVER_NAME'] . '/student023/shop/backend/index.php');
-    } else {
-      // REDIRECT USER TO THE LOGIN
-      $errors['fail'] = "Email o contraseña incorrecto!";
-    }
-  }
-}
-
-if (isset($_SESSION['user'])) {
-  if ($_SESSION['user']['rol'] == "customer") {
-    header("Location: http://" . $_SERVER['SERVER_NAME'] . '/student023/shop/views/profile.html');
-  } else if ($_SESSION['user']['rol'] == "admin") {
-    header("Location: http://" . $_SERVER['SERVER_NAME'] . '/student023/shop/backend/');
-  }
-}
-?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -66,7 +9,7 @@ if (isset($_SESSION['user'])) {
   <link rel="stylesheet" href="/student023/shop/css/style.css">
   <link href="/student023/shop/assets/fontawesome/css/fontawesome.css" rel="stylesheet">
   <link href="/student023/shop/assets/fontawesome/css/all.css" rel="stylesheet">
-  <title>Log In</title>
+  <title>Detalle Producto</title>
 </head>
 
 <body>
@@ -115,13 +58,13 @@ if (isset($_SESSION['user'])) {
     <div class="bg-primary rounded-2xl shadow-2xl flex flex-col justify-center px-6 py-12 sm:w-[60%] lg:w-150 lg:px-10">
       <div class="sm:mx-auto sm:w-full sm:max-w-sm">
         <img src="/student023/shop/assets/images/brand/logo_claro.png" alt="RiffStore" class="mx-auto h-10 w-auto" />
-        <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">Iniciar sesión en tu cuenta</h2>
+        <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">Unete creandote una cuenta</h2>
       </div>
 
       <div class="flex flex-col items-center mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form action="login.php" method="POST" class="space-y-6">
           <div>
-            <label for="email" class="block text-sm/6 font-medium text-gray-100">Email address</label>
+            <label for="email" class="block text-sm/6 font-medium text-gray-100">Correo electrónico</label>
             <div class="mt-2">
               <input id="email" type="email" name="email" required="email" class="block rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-accent sm:text-sm/6 sm:w-90" />
             </div>
@@ -129,24 +72,30 @@ if (isset($_SESSION['user'])) {
 
           <div>
             <div class="flex items-center justify-between">
-              <label for="password" class="block text-sm/6 font-medium text-gray-100">Password</label>
+              <label for="password" class="block text-sm/6 font-medium text-gray-100">Contraseña</label>
             </div>
             <div class="mt-2">
               <input id="password" type="password" name="pwd" required autocomplete="current-password" class="block rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-accent sm:text-sm/6 sm:w-90" />
             </div>
-            <div class="text-sm pt-2">
-                <a href="#" class="font-semibold text-text underline hover:opacity-40">Has olvidado la contraseña?</a>
-              </div>
           </div>
 
           <div>
-            <button type="submit" name="submit" class="flex w-full justify-center rounded-md bg-accent px-3 py-1.5 text-sm/6 font-semibold text-white hover:opacity-40 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">Sign in</button>
+            <div class="flex items-center justify-between">
+              <label for="password" class="block text-sm/6 font-medium text-gray-100">Confirmar contraseña</label>
+            </div>
+            <div class="mt-2">
+              <input id="password" type="password" name="pwd" required autocomplete="current-password" class="block rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-accent sm:text-sm/6 sm:w-90" />
+            </div>
+          </div>
+
+          <div>
+            <button type="submit" name="submit" class="flex w-full justify-center rounded-md bg-accent px-3 py-1.5 text-sm/6 font-semibold text-white hover:opacity-40 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">Registrar</button>
           </div>
         </form>
 
         <p class="mt-10 text-center text-sm/6 text-gray-400">
-          No tienes cuenta?
-          <a href="register.php" class="font-semibold text-text underline hover:opacity-40">Regístrate</a>
+          Ya tienes cuenta?
+          <a href="register.php" class="font-semibold text-text underline hover:opacity-40">Iniciar sesión</a>
         </p>
       </div>
     </div>

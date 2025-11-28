@@ -73,6 +73,14 @@ main {
 
         small {
           font-family: $latoregular;
+
+          @media (min-width: 810px) and (max-width: 1090px) {
+            font-size: 1rem;
+          }
+
+          @media (min-width: 1100px){
+            font-size: 1rem;
+          }
           span {
             font-family: $latobold;
           }

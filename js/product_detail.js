@@ -1,26 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const urlProductsEndpoint = "/student023/shop/backend/endpoints/db_products_enabled.php"
-    const actualImage = document.getElementById('actual-image');
-    const allImages = document.querySelectorAll('#all-images img');
-    const listRelatedProducts = document.getElementById('list-related-products');
+  const urlProductsEndpoint = "/student023/shop/backend/endpoints/db_products_enabled.php"
+  const actualImage = document.getElementById('actual-image');
+  const allImages = document.querySelectorAll('#all-images img');
+  const listRelatedProducts = document.getElementById('list-related-products');
 
 
-    async function loadRelatedProducts() {
-        try {
-            const response = await fetch(urlProductsEndpoint);
-            const products = await response.json();
-            console.log(products);
-            showRelatedProducts(products);
-        } catch (error) {
-            listProducts.innerHTML = "<h1>¡Ha habido un problema cargando los productos!</h1>";
-        }
+  async function loadRelatedProducts() {
+    try {
+      const response = await fetch(urlProductsEndpoint);
+      const products = await response.json();
+      console.log(products);
+      showRelatedProducts(products);
+    } catch (error) {
+      listProducts.innerHTML = "<h1>¡Ha habido un problema cargando los productos!</h1>";
     }
+  }
 
-    function showRelatedProducts(products) {
-    if(products != null && products.length != 0){
+  function showRelatedProducts(products) {
+    if (products != null && products.length != 0) {
       listRelatedProducts.innerHTML = products
-      .map((product) => 
-        `
+        .map((product) =>
+          `
            <article class="card" data-product-id="${product.productId}">
                 <img class="w-[130px]" src="${product.imagePath}" alt="">
                 <div class="flex items-center justify-start w-full">
@@ -40,11 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </article>
         `
-      ).join("");
+        ).join("");
       addEventProducts();
       addEventAddToCart()
       addEventCardBuy();
-    } else{
+    } else {
       listRelatedProducts.innerHTML = "<h1>¡No hay productos disponibles!</h1>";
     }
   }
@@ -54,15 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     products.forEach((product) => {
       product.addEventListener('click', (e) => {
-          const productId = product.parentElement.dataset.productId;
-          location.href = `product_detail.html?id=${productId}`;
+        const productId = product.parentElement.dataset.productId;
+        location.href = `product_detail.html?id=${productId}`;
       })
     })
   }
 
-  function addEventAddToCart(){
+  function addEventAddToCart() {
     const buttons = document.querySelectorAll('.card-buy');
-    
+
     buttons.forEach((button) => {
       button.addEventListener('click', (e) => {
         const productId = e.target.parentElement.dataset.productId;
@@ -76,36 +76,36 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const response = fetch(endpointnUrl)
       const result = response.
-      console.log(result);
+        console.log(result);
     } catch (error) {
-      
+
     }
   }
   function addEventCardBuy() {
-     document.querySelectorAll('.card-buy').forEach((btn) => {
+    document.querySelectorAll('.card-buy').forEach((btn) => {
       btn.addEventListener('click', () => {
-          btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+        btn.innerHTML = '<i class="fa-solid fa-check"></i>';
 
-          // Después de 1.5 segundos vuelve al estado original
-          setTimeout(() => {
-              btn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i>';
-          }, 1500);
+        // Después de 1.5 segundos vuelve al estado original
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i>';
+        }, 1500);
       })
     });
   }
- 
 
-    allImages.forEach((image)=> {
-        image.addEventListener('click', () => {
-            allImages.forEach((image) => {
-                image.classList.remove('active-image')
-            })
-            let srcImage = image.src
-            srcImage = srcImage.replace(".png", ".jpg")
-            actualImage.src = srcImage
-            image.classList.add('active-image')
-        });
+
+  allImages.forEach((image) => {
+    image.addEventListener('click', () => {
+      allImages.forEach((image) => {
+        image.classList.remove('active-image')
+      })
+      let srcImage = image.src
+      srcImage = srcImage.replace(".png", ".jpg")
+      actualImage.src = srcImage
+      image.classList.add('active-image')
     });
-    console.log("object");
-    loadRelatedProducts();
+  });
+  console.log("object");
+  loadRelatedProducts();
 })

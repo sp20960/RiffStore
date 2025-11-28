@@ -587,6 +587,16 @@ main > div section:nth-of-type(2) > div h2 {
 main > div section:nth-of-type(2) > div small {
   font-family: LatoRegular, "sans-serif";
 }
+@media (min-width: 810px) and (max-width: 1090px) {
+  main > div section:nth-of-type(2) > div small {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 1100px) {
+  main > div section:nth-of-type(2) > div small {
+    font-size: 1rem;
+  }
+}
 main > div section:nth-of-type(2) > div small span {
   font-family: LatoBold, "sans-serif";
 }
