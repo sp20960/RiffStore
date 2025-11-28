@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       listRelatedProducts.innerHTML = products
       .map((product) => 
         `
-           <article class="card sm:h-[320px]" data-product-id="${product.productId}">
+           <article class="card" data-product-id="${product.productId}">
                 <img class="w-[130px]" src="${product.imagePath}" alt="">
                 <div class="flex items-center justify-start w-full">
                     <i class="fa-regular fa-star fa-sm"></i>
