@@ -152,6 +152,7 @@ footer small {
   text-align: center;
   color: var(--text);
   padding-top: 10px;
+  font-family: "LatoRegular";
 }
 
 .container-social-media {
@@ -299,7 +300,7 @@ footer small {
     flex-direction: column;
     gap: 10px;
     bottom: 0;
-    transform: translate(70%, 70%);
+    transform: translate(70%, 60%);
     position: absolute;
     border: solid 1px;
     border-radius: 10px;

@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     buttons.forEach((button) => {
       button.addEventListener('click', async (e) => {
-        const productId = e.target.parentElement.dataset.productId;
+        const productId = button.parentElement.dataset.productId;
         const session =  await checkSession();
         if(session){
           addToShoppingCart(productId);

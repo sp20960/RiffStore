@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeAddAddress = document.getElementById('close-add-address');
     const inputProfileImage = document.getElementById('input-profile-image');
     const profileImage = document.getElementById('profile-image');
+    const logOut = document.getElementById('log-out');
 
     async function getCustomerInfo() {
         try {
@@ -138,6 +139,30 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('btn-save-profile-image').classList.add('block!')
         }
 
+    });
+
+    logOut.addEventListener('click', () => {
+      const xhttp = new XMLHttpRequest();
+      xhttp.open("GET", "/student023/shop/backend/endpoints/logout.php?logout=true", true);
+
+      xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200 ){
+          window.location.href = "../index.html";
+        }
+      }
+      xhttp.send();
+    });
+
+    document.getElementById('log-out-mobile').addEventListener('click', () => {
+      const xhttp = new XMLHttpRequest();
+      xhttp.open("GET", "/student023/shop/backend/endpoints/logout.php?logout=true", true);
+
+      xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200 ){
+          window.location.href = "../index.html";
+        }
+      }
+      xhttp.send();
     });
     getCustomerInfo();
 });

@@ -1,7 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
     const urlProductsEndpoint = "/student023/shop/backend/endpoints/db_products_enabled.php";
+    const urlLoadShoppingCart = "/student023/shop/backend/endpoints/db_product_by_id.php";
     const listFeaturedProducts = document.getElementById('list-featured-products');
+    let productsToAdd = JSON.parse(localStorage.getItem('products')) || {}
+    let listShoppingCart = document.getElementById('shopping-cart-products')
 
+
+    function checkLocalStorage(){
+      if(productsToAdd){
+        listShoppingCart.innerHTML = ""
+
+        for(const product of productsToAdd.products){
+            loadShoppingCart(product);
+        } 
+      }else {
+        console.log("first")
+      }
+    }
+
+    function loadShoppingCart(product){  
+      
+        let params = "productId=" + encodeURIComponent(product.productId) +
+                      "&quantity=" + encodeURIComponent(product.qty);
+
+        let xhttp = new XMLHttpRequest();
+        xhttp.open("POST", urlLoadShoppingCart, true);
+        xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhttp.onreadystatechange = function(){
+          if(xhttp.readyState == 4 && xhttp.status == 200){
+              listShoppingCart.innerHTML += xhttp.responseText;
+                      addEventTrash();
+
+          }
+        }
+        xhttp.send(params)
+
+    }
+
+    function addEventTrash(){
+      document.querySelectorAll('.fa-trash').forEach((trash) => {
+        trash.addEventListener('click', () => {
+          let productId = trash.parentElement.parentElement.parentElement.dataset.productId
+          productsToAdd.products = productsToAdd.products.filter((product) => product.productId != productId);
+          localStorage.setItem('products', JSON.stringify(productsToAdd));
+          checkLocalStorage();
+        })
+      })
+    }
     async function loadRelatedProducts() {
         try {
             const response = await fetch(urlProductsEndpoint);
@@ -97,5 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   loadRelatedProducts();
+  checkLocalStorage();
   
 })

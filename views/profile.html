@@ -53,7 +53,7 @@
     </header>
 
     <main class="flex flex-col pt-[115px] lg:flex-row lg:items-center lg:pt-[87px]">
-        <aside class="hidden lg:bg-primary/90 lg:flex lg:pt-10 lg:flex-col lg: lg:left-0 lg:w-full lg:h-screen" >
+        <aside class="hidden lg:bg-primary/90 lg:flex lg:pt-10 lg:flex-col lg: lg:left-0 lg:w-100 lg:h-screen" >
             <div class="flex flex-col gap-10 ml-5">
                 <div>
                     <a href="" class="text-xl font-latobold text-text cursor-pointer">Profile</a>
@@ -63,6 +63,9 @@
                 </div>
                 <div>
                     <a href="" class="text-xl font-latobold text-text cursor-pointer">Reviews</a>
+                </div>
+                <div>
+                    <button id="log-out" class="text-xl border border-red-400 p-2 rotate-none rounded-md font-latobold text-text cursor-pointer"><i class="fa-solid fa-sign-out"></i>Logout</button>
                 </div>
             </div>
         </aside>
@@ -80,6 +83,10 @@
                 <div class="flex flex-col gap-3 items-center">
                     <i class="fa-regular fa-star fa-2xl text-text!"></i>
                     <p class="font-latobold text-text">Reviews</p>
+                </div>
+                <div id="log-out-mobile" class="flex flex-col gap-3 items-center">
+                    <i class="fa-solid fa-sign-out fa-2xl text-text!"></i>
+                    <p class="font-latobold text-text">Logout</p>
                 </div>
             </section>
 

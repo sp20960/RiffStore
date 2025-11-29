@@ -15,11 +15,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     dropwDownMenuCaret.addEventListener('click', () => { 
-        if(dropDownMenu.style.display === 'none'){
+        if(dropDownMenu.style.display === 'none' || dropDownMenu.style.display === 'none'){
             dropDownMenu.style.display = 'flex'
         } else {
-            dropDownMenu.style.display = 'none'
+            dropDownMenu.style.display = 'none '
         }
+    });
+
+    dropwDownMenuCaret.addEventListener('mouseover', () => { 
+            dropDownMenu.style.display = 'flex'
+          
+    });
+
+    dropwDownMenuCaret.addEventListener('mouseleave', () => { 
+            dropDownMenu.style.display = 'none '
+        
+    });
+
+    dropDownMenu.addEventListener('mouseover', () => { 
+            dropDownMenu.style.display = 'flex'
+          
+    });
+
+    dropDownMenu.addEventListener('mouseleave', () => { 
+            dropDownMenu.style.display = 'none '
+        
     });
 
     logo.addEventListener('click', () => {
